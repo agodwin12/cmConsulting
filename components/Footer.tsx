@@ -170,7 +170,7 @@ export default function Footer() {
             </Link>
 
             <p className="text-sm leading-relaxed mb-6 text-white/50">
-              Votre partenaire de confiance pour la croissance de votre entreprise au Cameroun et en Afrique Centrale. Conseil, technologie, design et digital — tout en un.
+              Votre partenaire de confiance pour la croissance de votre entreprise .
             </p>
 
             {/* Social links */}

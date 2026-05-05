@@ -13,9 +13,7 @@ import {
   BarChart2,
   Wrench,
   Palette,
-  Code2,
   ShoppingBag,
-  Cloud,
   ArrowRight,
   CheckCircle2,
   MessageCircle,
@@ -43,9 +41,9 @@ const divisions = [
   },
   {
     icon:     <Wrench size={24} />,
-    name:     "D-Panneur",
-    subtitle: "Dépannage & Maintenance Informatique",
-    desc:     "D-Panneur est notre centre de réparation spécialisé. Ordinateurs, téléphones, imprimantes — nous diagnostiquons et réparons rapidement vos équipements pour minimiser vos interruptions d'activité.",
+    name:     "CM Tech",
+    subtitle: "Informatique, Développement & Cloud",
+    desc:     "CM Tech reGroup tout notre pôle technologique : dépannage et maintenance informatique, développement de sites web et applications mobiles, logiciels métier sur mesure, hébergement cloud et cybersécurité. Une seule équipe pour tous vos besoins numériques.",
     color:    "border-orange-500/30 bg-orange-500/5",
     iconBg:   "bg-orange-500/15 text-orange-400",
     href:     "/services#depannage",
@@ -65,31 +63,11 @@ const divisions = [
     icon:     <ShoppingBag size={24} />,
     name:     "CM Shop",
     subtitle: "Vente de Matériel & Accessoires",
-    desc:     "CM Shop est notre boutique spécialisée dans la vente de matériel informatique, téléphones, accessoires et consommables. Produits de qualité, prix compétitifs, livraison dans tout le Cameroun.",
+    desc:     "CM Shop est une boutique polyvalente proposant une large gamme de produits, allant du matériel informatique, téléphones et accessoires à divers articles de consommation courante. Nous nous engageons à offrir des produits de qualité, à des prix compétitifs, avec un service de livraison fiable sur l’ensemble du territoire camerounais.",
     color:    "border-yellow-500/30 bg-yellow-500/5",
     iconBg:   "bg-yellow-500/15 text-yellow-400",
     href:     "/services#shop",
     facebook: "https://web.facebook.com/CMShop237",
-  },
-  {
-    icon:     <Code2 size={24} />,
-    name:     "Développement Logiciel",
-    subtitle: "Sites Web, Applications & Logiciels Sur Mesure",
-    desc:     "Notre équipe de développeurs crée des solutions digitales performantes — sites vitrine, e-commerce, applications mobiles Android & iOS, et logiciels métier adaptés à vos besoins spécifiques.",
-    color:    "border-green-500/30 bg-green-500/5",
-    iconBg:   "bg-green-500/15 text-green-400",
-    href:     "/services#dev",
-    facebook: null,
-  },
-  {
-    icon:     <Cloud size={24} />,
-    name:     "Solutions Cloud",
-    subtitle: "Hébergement, Cloud & Cybersécurité",
-    desc:     "Nous hébergeons vos sites et applications, gérons votre infrastructure cloud et protégeons vos données. Des solutions fiables et sécurisées pour que votre business reste opérationnel 24h/24.",
-    color:    "border-purple-500/30 bg-purple-500/5",
-    iconBg:   "bg-purple-500/15 text-purple-400",
-    href:     "/services#cloud",
-    facebook: null,
   },
 ];
 
@@ -163,7 +141,7 @@ const milestones = [
   },
   {
     year: "2015",
-    title: "Lancement de D-Panneur",
+    title: "Lancement de CM Tech",
     desc:  "Ouverture de notre centre de dépannage informatique pour répondre aux besoins croissants du marché en maintenance et réparation.",
   },
   {
@@ -174,7 +152,7 @@ const milestones = [
   {
     year: "2019",
     title: "Ouverture de CM Shop",
-    desc:  "Lancement de notre boutique de matériel informatique pour compléter notre offre et servir les particuliers et les entreprises.",
+    desc:  "Lancement de notre boutique de vente enligne pour compléter notre offre et servir les particuliers et les entreprises.",
   },
   {
     year: "2022",
@@ -199,7 +177,6 @@ export default function AboutPage() {
           1. PAGE HEADER
       ══════════════════════════════════════════════════ */}
       <section className="relative bg-brand-black pt-44 pb-24 overflow-hidden">
-        {/* BG image */}
         <div className="absolute inset-0 z-0">
           <Image
             src="https://images.unsplash.com/photo-1556761175-4b46a572b786?w=1920&h=800&fit=crop"
@@ -211,8 +188,6 @@ export default function AboutPage() {
           <div className="absolute inset-0 bg-gradient-to-r from-brand-black via-brand-black/90 to-brand-black/60" />
           <div className="absolute inset-0 bg-gradient-to-t from-brand-black via-transparent to-transparent" />
         </div>
-
-        {/* Blue glow */}
         <div className="absolute top-1/2 right-1/3 w-[400px] h-[400px] bg-brand-blue-500/10 blur-[100px] pointer-events-none" />
 
         <div className="relative z-10 w-full px-6 lg:px-16 xl:px-24">
@@ -224,18 +199,18 @@ export default function AboutPage() {
           </div>
           <h1 className="font-display text-5xl lg:text-6xl text-white font-bold max-w-3xl leading-tight mb-6">
             Plus de 12 Ans à Vos{" "}
-            <span className="text-brand-blue-500">Côtés</span> à Douala
+            <span className="text-brand-blue-500">Côtés</span>
           </h1>
           <p className="text-white/55 text-lg max-w-2xl leading-relaxed mb-10">
-            CM Consulting est né d'une conviction simple : les entreprises camerounaises méritent un accompagnement professionnel de qualité internationale, ancré dans la réalité locale.
+            CM Group est né d'une conviction simple : chaque entreprise mérite un accompagnement professionnel de qualité, ancré dans la réalité locale.
           </p>
 
-          {/* Quick stats row */}
-          <div className="flex flex-wrap gap-8">
+          {/* Quick stats — responsive wrap */}
+          <div className="flex flex-wrap gap-6 sm:gap-10">
             {[
               { value: "2012", label: "Année de fondation" },
               { value: "200+", label: "Projets réalisés" },
-              { value: "6",    label: "Divisions spécialisées" },
+              { value: "4",    label: "Divisions spécialisées" },
               { value: "50+",  label: "Experts dans l'équipe" },
             ].map(({ value, label }) => (
               <div key={label}>
@@ -250,8 +225,8 @@ export default function AboutPage() {
       {/* ══════════════════════════════════════════════════
           2. QUI SOMMES-NOUS
       ══════════════════════════════════════════════════ */}
-      <section className="bg-white py-28">
-        <div className="w-full px-6 lg:px-16 xl:px-24 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+      <section className="bg-white py-20 lg:py-28">
+        <div className="w-full px-6 lg:px-16 xl:px-24 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
           {/* Left: text */}
           <div>
@@ -262,26 +237,24 @@ export default function AboutPage() {
               </span>
             </div>
             <h2 className="font-display text-4xl lg:text-5xl font-bold text-brand-black leading-tight mb-6">
-              Un Groupe 100%{" "}
+              Un Group 100%{" "}
               <span className="text-brand-blue-500">Camerounais</span>
             </h2>
             <p className="text-slate-500 leading-relaxed mb-5">
-              CM Consulting est un groupe d'entreprises spécialisées, fondé et dirigé par des Camerounais, pour les entreprises camerounaises et africaines. Depuis Douala, nous rayonnons sur tout le territoire national et au-delà.
+              CM Group est un Group d'entreprises spécialisées, fondé et dirigé par des Camerounais, pour les entreprises camerounaises et africaines. Depuis Douala, nous rayonnons sur tout le territoire national et au-delà.
             </p>
             <p className="text-slate-500 leading-relaxed mb-5">
               Nous avons construit notre réputation sur une promesse simple : des résultats concrets, une communication honnête, et un suivi rigoureux. Pas de grands discours — des actes.
             </p>
             <p className="text-slate-500 leading-relaxed mb-8">
-              Aujourd'hui, notre groupe couvre 6 domaines d'expertise complémentaires — du conseil stratégique au développement logiciel, en passant par le design, le dépannage informatique et la vente de matériel.
+              Aujourd'hui, notre Group couvre 4 domaines d'expertise complémentaires — du conseil stratégique au développement logiciel, en passant par le design, le dépannage informatique et la vente de matériel.
             </p>
 
-            <ul className="space-y-3 mb-10">
+            <ul className="space-y-3 mb-6">
               {[
                 "Experts locaux avec standards internationaux",
-                "Service en français et en anglais",
-                "Support disponible du lundi au samedi",
+                "Support disponible 24h/7",
                 "Devis gratuit sous 24h",
-                "Présence à Douala avec interventions nationales",
               ].map((item) => (
                 <li key={item} className="flex items-start gap-3 text-sm text-slate-700">
                   <CheckCircle2 size={17} className="text-brand-blue-500 mt-0.5 shrink-0" />
@@ -293,7 +266,7 @@ export default function AboutPage() {
 
           {/* Right: image grid */}
           <div className="grid grid-cols-2 gap-4">
-            <div className="relative h-64 rounded-2xl overflow-hidden shadow-card">
+            <div className="relative h-56 sm:h-64 rounded-2xl overflow-hidden shadow-card">
               <Image
                 src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=500&h=500&fit=crop"
                 alt="Équipe CM Consulting en réunion"
@@ -301,7 +274,7 @@ export default function AboutPage() {
                 className="object-cover"
               />
             </div>
-            <div className="relative h-64 rounded-2xl overflow-hidden shadow-card mt-8">
+            <div className="relative h-56 sm:h-64 rounded-2xl overflow-hidden shadow-card mt-8">
               <Image
                 src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=500&h=500&fit=crop&crop=face"
                 alt="Consultante CM Consulting"
@@ -309,7 +282,7 @@ export default function AboutPage() {
                 className="object-cover"
               />
             </div>
-            <div className="relative h-48 rounded-2xl overflow-hidden shadow-card -mt-4">
+            <div className="relative h-40 sm:h-48 rounded-2xl overflow-hidden shadow-card -mt-4">
               <Image
                 src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=500&h=400&fit=crop"
                 alt="Technicien au travail"
@@ -317,7 +290,7 @@ export default function AboutPage() {
                 className="object-cover"
               />
             </div>
-            <div className="relative h-48 rounded-2xl overflow-hidden shadow-card">
+            <div className="relative h-40 sm:h-48 rounded-2xl overflow-hidden shadow-card">
               <Image
                 src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=500&h=400&fit=crop"
                 alt="Design graphique"
@@ -332,7 +305,7 @@ export default function AboutPage() {
       {/* ══════════════════════════════════════════════════
           3. MISSION & VISION
       ══════════════════════════════════════════════════ */}
-      <section className="bg-gradient-to-b from-slate-50 to-blue-50/20 py-28">
+      <section className="bg-gradient-to-b from-slate-50 to-blue-50/20 py-20 lg:py-28">
         <div className="w-full px-6 lg:px-16 xl:px-24">
           <div className="text-center mb-14">
             <div className="flex items-center justify-center gap-3 mb-4">
@@ -347,9 +320,9 @@ export default function AboutPage() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-5xl mx-auto">
             {/* Mission */}
-            <div className="relative bg-brand-black rounded-3xl p-10 overflow-hidden">
+            <div className="relative bg-brand-black rounded-3xl p-8 lg:p-10 overflow-hidden">
               <div className="absolute top-0 right-0 w-52 h-52 bg-brand-blue-500/10 rounded-full blur-2xl pointer-events-none" />
               <div className="relative z-10">
                 <div className="w-12 h-12 rounded-xl bg-brand-blue-500/15 border border-brand-blue-500/30 flex items-center justify-center mb-6">
@@ -359,16 +332,16 @@ export default function AboutPage() {
                   Notre Mission
                 </p>
                 <h3 className="font-display text-2xl font-bold text-white mb-4 leading-snug">
-                  Accélérer la Croissance des Entreprises Africaines
+                  Accélérer la Croissance des Entreprises et Startups
                 </h3>
                 <p className="text-white/55 leading-relaxed text-sm">
-                  Offrir aux entreprises camerounaises et africaines un accès à une expertise de classe mondiale — conseil, technologie, design et digital — pour les aider à croître, se structurer et rayonner avec confiance.
+                  Offrir aux entreprises un accès à une expertise de classe mondiale — conseil, technologie, design et digital — pour les aider à croître, se structurer et rayonner avec confiance.
                 </p>
               </div>
             </div>
 
             {/* Vision */}
-            <div className="relative bg-white border border-slate-100 rounded-3xl p-10 shadow-card overflow-hidden">
+            <div className="relative bg-white border border-slate-100 rounded-3xl p-8 lg:p-10 shadow-card overflow-hidden">
               <div className="absolute bottom-0 right-0 w-40 h-40 bg-brand-blue-500/5 rounded-full blur-2xl pointer-events-none" />
               <div className="relative z-10">
                 <div className="w-12 h-12 rounded-xl bg-brand-black flex items-center justify-center mb-6">
@@ -378,10 +351,10 @@ export default function AboutPage() {
                   Notre Vision
                 </p>
                 <h3 className="font-display text-2xl font-bold text-brand-black mb-4 leading-snug">
-                  Le Partenaire de Référence en Afrique Centrale
+                  Le Partenaire de Référence
                 </h3>
                 <p className="text-slate-500 leading-relaxed text-sm">
-                  Devenir le groupe de services le plus fiable et le plus complet d'Afrique Centrale — reconnu pour l'intégrité de nos équipes, la qualité de nos livrables, et l'impact positif que nous créons dans chaque entreprise accompagnée.
+                  Devenir le Group de services le plus fiable et le plus complet d'Afrique — reconnu pour l'intégrité de nos équipes, la qualité de nos livrables, et l'impact positif que nous créons dans chaque entreprise accompagnée.
                 </p>
               </div>
             </div>
@@ -390,33 +363,34 @@ export default function AboutPage() {
       </section>
 
       {/* ══════════════════════════════════════════════════
-          4. NOS DIVISIONS
+          4. NOS DIVISIONS — 4 cards, 2-col on mobile
       ══════════════════════════════════════════════════ */}
-      <section className="bg-white py-28">
+      <section className="bg-white py-20 lg:py-28">
         <div className="w-full px-6 lg:px-16 xl:px-24">
-          <div className="text-center mb-16">
+          <div className="text-center mb-14">
             <div className="flex items-center justify-center gap-3 mb-4">
               <span className="h-px w-10 bg-brand-blue-500" />
               <span className="text-brand-blue-500 text-xs font-semibold uppercase tracking-widest">
-                Notre Groupe
+                Notre Group
               </span>
               <span className="h-px w-10 bg-brand-blue-500" />
             </div>
             <h2 className="font-display text-4xl lg:text-5xl font-bold text-brand-black mb-4">
-              Nos 6 Divisions
+              Nos 4 Divisions
             </h2>
             <p className="text-slate-500 max-w-xl mx-auto text-sm leading-relaxed">
-              Chaque division est spécialisée dans son domaine, avec des experts dédiés. Ensemble, elles forment un groupe complet capable de couvrir tous vos besoins.
+              Chaque division est spécialisée dans son domaine, avec des experts dédiés. Ensemble, elles forment un Group complet capable de couvrir tous vos besoins.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* 1-col → 2-col → 4-col */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5 lg:gap-6">
             {divisions.map(({ icon, name, subtitle, desc, color, iconBg, href, facebook }) => (
               <div
                 key={name}
-                className={`group border rounded-2xl p-7 hover:shadow-card-lg transition-all duration-300 ${color}`}
+                className={`group border rounded-2xl p-6 lg:p-7 hover:shadow-card-lg transition-all duration-300 flex flex-col ${color}`}
               >
-                {/* Icon + name */}
+                {/* Icon + Facebook link */}
                 <div className="flex items-start justify-between mb-5">
                   <div className={`w-12 h-12 rounded-xl border flex items-center justify-center shrink-0 ${iconBg}`}>
                     {icon}
@@ -426,20 +400,20 @@ export default function AboutPage() {
                       href={facebook}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-white/20 hover:text-brand-blue-400 transition-colors text-xs"
+                      className="text-slate-400 hover:text-brand-blue-400 transition-colors text-xs font-medium"
                     >
                       Facebook →
                     </a>
                   )}
                 </div>
 
-                <h3 className="font-display text-xl font-bold text-brand-black mb-1">{name}</h3>
-                <p className="text-xs text-slate-400 mb-4 italic">{subtitle}</p>
-                <p className="text-slate-500 text-sm leading-relaxed mb-6">{desc}</p>
+                <h3 className="font-display text-lg font-bold text-brand-black mb-1">{name}</h3>
+                <p className="text-xs text-slate-400 mb-3 italic">{subtitle}</p>
+                <p className="text-slate-500 text-sm leading-relaxed mb-5 flex-1">{desc}</p>
 
                 <Link
                   href={href}
-                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-brand-blue-500 hover:gap-2.5 transition-all duration-200"
+                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-brand-blue-500 hover:gap-2.5 transition-all duration-200 mt-auto"
                 >
                   Découvrir <ArrowRight size={13} />
                 </Link>
@@ -450,9 +424,9 @@ export default function AboutPage() {
       </section>
 
       {/* ══════════════════════════════════════════════════
-          5. NOTRE HISTOIRE (TIMELINE)
+          5. NOTRE HISTOIRE (TIMELINE) — unchanged
       ══════════════════════════════════════════════════ */}
-      <section className="bg-brand-black py-28">
+      <section className="bg-brand-black py-20 lg:py-28">
         <div className="w-full px-6 lg:px-16 xl:px-24">
           <div className="text-center mb-16">
             <div className="flex items-center justify-center gap-3 mb-4">
@@ -468,20 +442,20 @@ export default function AboutPage() {
           </div>
 
           <div className="relative max-w-4xl mx-auto">
-            {/* Vertical line */}
+            {/* Vertical line — desktop only */}
             <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-brand-blue-500/50 via-brand-blue-500/20 to-transparent hidden md:block" />
 
-            <div className="space-y-10">
+            <div className="space-y-8 lg:space-y-10">
               {milestones.map(({ year, title, desc }, i) => (
                 <div
                   key={year}
-                  className={`relative grid grid-cols-1 md:grid-cols-2 gap-6 items-center ${
+                  className={`relative grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-6 items-center ${
                     i % 2 === 0 ? "" : "md:[&>*:first-child]:order-2"
                   }`}
                 >
                   {/* Content card */}
                   <div
-                    className={`bg-brand-darkgray border border-white/8 rounded-2xl p-6 ${
+                    className={`bg-brand-darkgray border border-white/8 rounded-2xl p-5 lg:p-6 ${
                       i % 2 === 0 ? "md:text-right md:pr-12" : "md:pl-12"
                     }`}
                   >
@@ -509,7 +483,7 @@ export default function AboutPage() {
       {/* ══════════════════════════════════════════════════
           6. NOS VALEURS
       ══════════════════════════════════════════════════ */}
-      <section className="bg-white py-28">
+      <section className="bg-white py-20 lg:py-28">
         <div className="w-full px-6 lg:px-16 xl:px-24">
           <div className="text-center mb-14">
             <div className="flex items-center justify-center gap-3 mb-4">
@@ -524,11 +498,11 @@ export default function AboutPage() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5">
             {values.map(({ icon, title, desc, color }) => (
               <div
                 key={title}
-                className="group flex gap-5 p-6 rounded-2xl border border-slate-100 hover:border-brand-blue-200 hover:shadow-card transition-all duration-300"
+                className="group flex gap-4 lg:gap-5 p-5 lg:p-6 rounded-2xl border border-slate-100 hover:border-brand-blue-200 hover:shadow-card transition-all duration-300"
               >
                 <div className={`w-11 h-11 rounded-xl border flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300 ${color}`}>
                   {icon}
@@ -544,15 +518,15 @@ export default function AboutPage() {
       </section>
 
       {/* ══════════════════════════════════════════════════
-          7. ÉQUIPE
+          7. ÉQUIPE — 2-col mobile, 4-col desktop
       ══════════════════════════════════════════════════ */}
-      <section className="bg-gradient-to-b from-slate-50 to-blue-50/20 py-28">
+      <section className="bg-gradient-to-b from-slate-50 to-blue-50/20 py-20 lg:py-28">
         <div className="w-full px-6 lg:px-16 xl:px-24">
           <div className="text-center mb-14">
             <div className="flex items-center justify-center gap-3 mb-4">
               <span className="h-px w-10 bg-brand-blue-500" />
               <span className="text-brand-blue-500 text-xs font-semibold uppercase tracking-widest">
-                Les Personnes Derrière CM Consulting
+                Les Personnes Derrière CM Group
               </span>
               <span className="h-px w-10 bg-brand-blue-500" />
             </div>
@@ -564,10 +538,9 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
             {teamMembers.map(({ name, role, image }) => (
               <div key={name} className="group text-center">
-                {/* Photo */}
                 <div className="relative w-full aspect-square rounded-2xl overflow-hidden shadow-card mb-4 border border-slate-100 group-hover:border-brand-blue-300 group-hover:shadow-card-lg transition-all duration-300">
                   <Image
                     src={image}
@@ -575,11 +548,10 @@ export default function AboutPage() {
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  {/* Blue overlay on hover */}
                   <div className="absolute inset-0 bg-brand-blue-500/0 group-hover:bg-brand-blue-500/10 transition-all duration-300" />
                 </div>
-                <h4 className="font-display font-bold text-brand-black text-base">{name}</h4>
-                <p className="text-slate-400 text-xs mt-1">{role}</p>
+                <h4 className="font-display font-bold text-brand-black text-sm sm:text-base leading-tight">{name}</h4>
+                <p className="text-slate-400 text-xs mt-1 leading-snug">{role}</p>
               </div>
             ))}
           </div>
@@ -589,7 +561,7 @@ export default function AboutPage() {
       {/* ══════════════════════════════════════════════════
           8. CTA
       ══════════════════════════════════════════════════ */}
-      <section className="relative bg-brand-black py-24 overflow-hidden">
+      <section className="relative bg-brand-black py-20 lg:py-24 overflow-hidden">
         <div className="absolute top-0 right-1/4 w-96 h-96 bg-brand-blue-500/10 blur-[120px] pointer-events-none" />
         <div className="relative z-10 w-full px-6 lg:px-16 xl:px-24 text-center">
           <div className="inline-flex items-center gap-2 bg-brand-blue-500/10 border border-brand-blue-500/30 rounded-full px-4 py-2 mb-6">

@@ -71,7 +71,7 @@ const divisions = [
   {
     id:         "depannage",
     icon:       <Wrench size={28} />,
-    name:       "Informatique & Dépannage",
+    name:       "Solution Informatique & Dépannage",
     nameEn:     "IT Support & Repair",
     brand:      "CM Tech",
     tagline:    "Votre équipement en panne ? Nous intervenons rapidement.",
@@ -251,7 +251,7 @@ export default function ServicesPage() {
             <span className="text-brand-blue-500">Chaque Besoin</span>
           </h1>
           <p className="text-white/55 text-lg max-w-2xl leading-relaxed mb-10">
-            6 divisions spécialisées, une seule adresse. CM Consulting couvre l'intégralité de vos besoins en conseil, technologie, design et digital à Douala et dans tout le Cameroun.
+            4 divisions spécialisées, une seule adresse. CM Group couvre l'intégralité de vos besoins en conseil, technologie, design et digital à Cameroon et dans  le monde entier.
           </p>
 
           {/* Quick jump links */}
@@ -423,12 +423,12 @@ export default function ServicesPage() {
                 <span className="text-brand-blue-500">Un Même Toit</span>
               </h2>
               <p className="text-white/55 leading-relaxed mb-8">
-                Plutôt que de gérer plusieurs prestataires, CM Consulting vous offre un guichet unique pour tous vos besoins. Conseil, tech, design, matériel — une seule équipe, une seule facture, un seul interlocuteur.
+                Plutôt que de gérer plusieurs prestataires, CM Group vous offre un guichet unique pour tous vos besoins. Conseil, tech, design, matériel — une seule équipe, une seule facture, un seul interlocuteur.
               </p>
               <ul className="space-y-3 mb-10">
                 {[
                   "Groupe 100% camerounais, ancré dans la réalité locale",
-                  "6 divisions spécialisées sous un même management",
+                  "4 divisions spécialisées sous un même management",
                   "Suivi client personnalisé et réactif",
                   "Tarifs adaptés aux budgets des PME africaines",
                   "Devis gratuit sous 24h, sans engagement",
@@ -447,7 +447,7 @@ export default function ServicesPage() {
               {[
                 { value: "12+",  label: "Ans d'Expérience",    sub: "Depuis 2012 à Douala" },
                 { value: "200+", label: "Projets Réalisés",     sub: "Clients satisfaits" },
-                { value: "6",    label: "Divisions Actives",    sub: "Services complets" },
+                { value: "4",    label: "Divisions Actives",    sub: "Services complets" },
                 { value: "98%",  label: "Taux de Satisfaction", sub: "Clients fidèles" },
               ].map(({ value, label, sub }) => (
                 <div

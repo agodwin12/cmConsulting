@@ -55,7 +55,7 @@ const slides = [
     eyebrow:  "Stratégie · Croissance · Leadership",
     headline: ["L'Excellence au", "Service de Votre", "Croissance."],
     accent:   1,
-    sub:      "Stratégie d'entreprise, plans de croissance et accompagnement des dirigeants camerounais. Du cap au résultat.",
+    sub:      "",
     cta:      { label: "Démarrer un Projet", href: "/contact" },
     ctaAlt:   { label: "Nos Services",       href: "/services#conseil" },
     /* Black businesswoman leading a meeting */
@@ -65,11 +65,11 @@ const slides = [
   {
     id:       "depannage",
     brand:    "Informatique & Dépannage",
-    eyebrow:  "Réparation · Maintenance · Support",
-    headline: ["Votre Tech,", "Toujours", "Opérationnelle."],
+    eyebrow:  "Conception · Maintenance · Support",
+    headline: ["Votre réussite", "numérique  Notre savoir-faire technique", " "],
     accent:   2,
-    sub:      "Réparation PC, téléphones, imprimantes et réseaux — intervention rapide à Douala avec des tarifs transparents.",
-    cta:      { label: "Contacter D-Panneur", href: "/contact" },
+    sub:      "",
+    cta:      { label: "Demarrer un projet", href: "/contact" },
     ctaAlt:   { label: "Voir les Services",   href: "/services#depannage" },
     /* Black male technician working on laptop repair */
     image:    "https://images.unsplash.com/photo-1629654297299-c8506221ca97?w=1920&h=1080&fit=crop",
@@ -79,9 +79,9 @@ const slides = [
     id:       "graphique",
     brand:    "Création Graphique",
     eyebrow:  "Design · Branding · Print",
-    headline: ["Votre Marque,", "Une Image", "Inoubliable."],
+    headline: ["Nous concevons", "l'univers graphique", "de votre succès,"],
     accent:   2,
-    sub:      "Logos, identité visuelle, supports print et réseaux sociaux — CM Graphic donne vie à votre communication.",
+    sub:      "",
     cta:      { label: "Lancer un Projet", href: "/contact" },
     ctaAlt:   { label: "Nos Créations",    href: "/services#graphique" },
     /* Black creative designer working at desk */
@@ -92,9 +92,9 @@ const slides = [
     id:       "dev",
     brand:    "Développement Logiciel",
     eyebrow:  "Web · Mobile · Logiciels",
-    headline: ["Des Solutions", "Digitales Pour", "l'Afrique."],
+    headline: ["Des Solutions", "Digitales adaptées", "à vos besoin."],
     accent:   2,
-    sub:      "Sites web, apps mobiles, logiciels métier — conçus pour le contexte africain : Mobile Money, mode offline, faible débit.",
+    sub:      "",
     cta:      { label: "Démarrer un Projet", href: "/contact" },
     ctaAlt:   { label: "Nos Réalisations",   href: "/services#dev" },
     /* Black developer coding at computer */
@@ -104,10 +104,10 @@ const slides = [
   {
     id:       "shop",
     brand:    "CM Shop 237",
-    eyebrow:  "Matériel · Téléphones · Accessoires",
-    headline: ["Du Matériel", "De Qualité,", "Au Meilleur Prix."],
+    eyebrow:  "Boutique en ligne.",
+    headline: ["Faites vos", "achats chez nous,", "en toute sérénité."],
     accent:   1,
-    sub:      "Ordinateurs, téléphones, accessoires et consommables — commande via WhatsApp, livraison à Douala.",
+    sub:      "",
     cta:      { label: "Voir la Boutique",     href: "/shop" },
     ctaAlt:   { label: "Commander WhatsApp",   href: "https://wa.me/237690486009" },
     /* Busy African tech store / electronics display */
@@ -120,7 +120,7 @@ const slides = [
     eyebrow:  "Cloud · Sécurité · Infrastructure",
     headline: ["Vos Données", "Sécurisées,", "Partout."],
     accent:   1,
-    sub:      "Hébergement, migration cloud, cybersécurité — une infrastructure fiable pour que votre business ne s'arrête jamais.",
+    sub:      "",
     cta:      { label: "Audit Gratuit", href: "/contact" },
     ctaAlt:   { label: "En Savoir Plus", href: "/services#cloud" },
     /* Server room / data center blue light */
@@ -148,9 +148,9 @@ const services = [
     icon:        <Wrench size={26} />,
     iconColor:   "text-brand-blue-400",
     hoverBg:     "group-hover:bg-brand-blue-500",
-    title:       "Informatique & Dépannage",
+    title:       "maintainance informatique & reseaux",
     titleEn:     "IT & Tech Support",
-    description: "Maintaince des system informatique, administration reseaux, création de parque informatique.",
+    description: "Maintaince des system informatique, administration reseaux, création de parcs informatique.",
     href:        "/services#depannage",
   },
   {
@@ -195,7 +195,7 @@ const stats = [
   { value: "200+", label: "Projets Réalisés",    icon: <Target size={22} /> },
   { value: "98%",  label: "Clients Satisfaits",  icon: <Star   size={22} /> },
   { value: "12+",  label: "Ans d'Expérience",    icon: <Award  size={22} /> },
-  { value: "50+",  label: "Experts Disponibles", icon: <Users  size={22} /> },
+  { value: "20",  label: "Experts Disponibles", icon: <Users  size={22} /> },
 ];
 
 const whyUs = [
@@ -271,20 +271,20 @@ const divisions = [
     color: "bg-brand-blue-500/10 border-brand-blue-500/20 text-brand-blue-400",
   },
   {
-    name:  "D-Panneur",
-    desc:  "Dépannage & maintenance informatique",
+    name:  "CM Tech",
+    desc:  "Solution web et mobile / maintenance informatique",
     icon:  <Wrench      size={20} />,
     color: "bg-brand-blue-500/10 border-brand-blue-500/20 text-brand-blue-400",
   },
   {
     name:  "CM Shop",
-    desc:  "Vente de matériel & accessoires",
+    desc:  "Boutique enligne",
     icon:  <ShoppingBag size={20} />,
     color: "bg-brand-blue-500/10 border-brand-blue-500/20 text-brand-blue-400",
   },
   {
     name:  "CM Graphic",
-    desc:  "Design graphique & communication",
+    desc:  "communication visuel et print",
     icon:  <Palette     size={20} />,
     color: "bg-brand-blue-500/10 border-brand-blue-500/20 text-brand-blue-400",
   },
@@ -344,10 +344,10 @@ export default function HomePage() {
               src={slide.image}
               alt={slide.brand}
               fill
-              className="object-cover opacity-30"
+              className="object-cover opacity-200"
               priority
             />
-            {/* Black gradient — always consistent regardless of slide */}
+            {/* Black gradi— always consistent regardless of slide */}
             <div className="absolute inset-0 bg-gradient-to-r from-brand-black/95 via-brand-black/80 to-brand-black/50" />
             <div className="absolute inset-0 bg-gradient-to-t from-brand-black/80 via-transparent to-brand-black/30" />
           </motion.div>
@@ -420,7 +420,7 @@ export default function HomePage() {
                 transition={{ duration: 0.4, delay: 0.3 }}
                 className="text-brand-blue-400/80 text-sm font-medium mb-3"
               >
-                📍 Basé à Douala · Actif dans tout le Cameroun
+            
               </motion.p>
             </AnimatePresence>
 
@@ -644,12 +644,12 @@ export default function HomePage() {
               <motion.h2 {...fadeUp(0.1)} className="font-display text-4xl lg:text-5xl font-bold text-brand-black leading-tight">
                 Nos Services
                 <br />
-                <span className="text-brand-blue-500">Pour Vous</span>
+              
               </motion.h2>
             </div>
             <motion.div {...fadeUp(0.15)}>
               <p className="text-slate-500 leading-relaxed mb-5">
-                Du conseil stratégique au développement logiciel, en passant par le design et la vente de matériel, CM Consulting couvre tous vos besoins en un seul endroit.
+                Du conseil stratégique au développement logiciel, en passant par le design et le E-commerce, CM Group couvre tous vos besoins en un seul endroit.
               </p>
               <Link
                 href="/services"
@@ -808,7 +808,7 @@ export default function HomePage() {
             src="https://images.unsplash.com/photo-1555448248-2571daf6344b?w=1920&h=600&fit=crop"
             alt="Douala Cameroun"
             fill
-            className="object-cover opacity-8"
+            className="object-cover opacity-50"
           />
           <div className="absolute inset-0 bg-brand-black/85" />
         </div>
@@ -825,7 +825,7 @@ export default function HomePage() {
               <span className="h-px w-10 bg-brand-blue-500" />
             </motion.div>
             <motion.h2 {...fadeUp(0.1)} className="font-display text-4xl lg:text-5xl font-bold text-white">
-              CM  en Chiffres
+              CM en Chiffres
             </motion.h2>
           </div>
 
@@ -1015,7 +1015,7 @@ export default function HomePage() {
             src="https://images.unsplash.com/photo-1556761175-4b46a572b786?w=1920&h=700&fit=crop"
             alt="Équipe CM Consulting"
             fill
-            className="object-cover opacity-10"
+            className="object-cover opacity-50"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-brand-black via-brand-black/95 to-brand-black/80" />
         </div>
