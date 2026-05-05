@@ -23,6 +23,7 @@ import {
   Target,
   MessageCircle,
 } from "lucide-react";
+import LogoSlider from "@/components/LogoSlider";
 
 /* ─────────────────────────────────────────────────────────
    ANIMATION HELPERS
@@ -627,6 +628,14 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* ══════════════════════════════════════════════════
+          LOGO SLIDER — "Ils nous font confiance"
+          Placed after Divisions, before Services.
+          Acts as a trust bridge between brand identity
+          and the services pitch below.
+      ══════════════════════════════════════════════════ */}
+      <LogoSlider lang="fr" />
 
       {/* ══════════════════════════════════════════════════
           3. SERVICES — white bg, black cards hover to black
