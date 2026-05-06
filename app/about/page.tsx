@@ -265,40 +265,41 @@ export default function AboutPage() {
           </div>
 
           {/* Right: image grid */}
-          <div className="grid grid-cols-2 gap-4">
-            <div className="relative h-56 sm:h-64 rounded-2xl overflow-hidden shadow-card">
-              <Image
-                src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=500&h=500&fit=crop"
-                alt="Équipe CM Consulting en réunion"
-                fill
-                className="object-cover"
-              />
-            </div>
-            <div className="relative h-56 sm:h-64 rounded-2xl overflow-hidden shadow-card mt-8">
-              <Image
-                src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=500&h=500&fit=crop&crop=face"
-                alt="Consultante CM Consulting"
-                fill
-                className="object-cover"
-              />
-            </div>
-            <div className="relative h-40 sm:h-48 rounded-2xl overflow-hidden shadow-card -mt-4">
-              <Image
-                src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=500&h=400&fit=crop"
-                alt="Technicien au travail"
-                fill
-                className="object-cover"
-              />
-            </div>
-            <div className="relative h-40 sm:h-48 rounded-2xl overflow-hidden shadow-card">
-              <Image
-                src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=500&h=400&fit=crop"
-                alt="Design graphique"
-                fill
-                className="object-cover"
-              />
-            </div>
-          </div>
+       {/* Right: image grid */}
+<div className="grid grid-cols-2 gap-4">
+  <div className="relative h-56 sm:h-64 rounded-2xl overflow-hidden shadow-card">
+    <Image
+      src="/workers/new1.jpg"
+      alt="Équipe CM Consulting"
+      fill
+      className="object-cover"
+    />
+  </div>
+  <div className="relative h-56 sm:h-64 rounded-2xl overflow-hidden shadow-card mt-8">
+    <Image
+      src="/workers/new2.jpg"
+      alt="Consultant CM Consulting"
+      fill
+      className="object-cover"
+    />
+  </div>
+  <div className="relative h-40 sm:h-48 rounded-2xl overflow-hidden shadow-card -mt-4">
+    <Image
+      src="/workers/new3.jpg"
+      alt="Expert CM Consulting"
+      fill
+      className="object-cover"
+    />
+  </div>
+  <div className="relative h-40 sm:h-48 rounded-2xl overflow-hidden shadow-card">
+    <Image
+      src="/workers/new4.jpg"
+      alt="Équipe CM Group"
+      fill
+      className="object-cover"
+    />
+  </div>
+</div>
         </div>
       </section>
 

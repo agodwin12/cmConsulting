@@ -217,7 +217,7 @@ const testimonials = [
     rating: 5,
   },
   {
-    name:   "Joseph Kamga",
+    name:   "Micheal SALGARG ",
     role:   "Fondateur, TechStart Cameroun",
     /* Black African professional man portrait */
     avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&h=100&fit=crop&crop=face",
@@ -225,7 +225,7 @@ const testimonials = [
     rating: 5,
   },
   {
-    name:   "Fatima Aboubakar",
+    name:   "MArie-Lou ELDWIDGE",
     role:   "Gérante, Boutique Mode Yaoundé",
     /* Black African woman smiling portrait */
     avatar: "https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?w=100&h=100&fit=crop&crop=face",
@@ -724,7 +724,7 @@ export default function HomePage() {
             <div className="relative h-[540px] rounded-3xl overflow-hidden shadow-card-lg">
               <Image
                 /* Black African female consultant presenting */
-                src="https://images.unsplash.com/photo-1573497491765-dccce02b29df?w=700&h=900&fit=crop"
+                src="/workers/new6.jpg"
                 alt="Équipe CM Consulting en réunion"
                 fill
                 className="object-cover"
@@ -736,7 +736,7 @@ export default function HomePage() {
             <div className="absolute -bottom-8 -right-8 w-56 h-56 rounded-2xl overflow-hidden border-4 border-white shadow-card-lg">
               <Image
                 /* Black African businesswoman smiling */
-                src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=300&h=300&fit=crop&crop=face"
+                src="/workers/new5.jpg"
                 alt="Consultante CM Consulting"
                 fill
                 className="object-cover"

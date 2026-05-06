@@ -12,9 +12,9 @@ export const metadata: Metadata = {
     "CM Consulting helps businesses grow through expert strategy, IT consulting, web development, and cloud solutions.",
   keywords: ["consulting", "business strategy", "IT consulting", "cloud solutions", "web development"],
   icons: {
-    icon: "/logo.jpg",
-    shortcut: "/logo.jpg",
-    apple: "/logo.jpg",
+    icon: "/logo.png",
+    shortcut: "/logo.png",
+    apple: "/logo.png",
   },
 };
 

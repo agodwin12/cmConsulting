@@ -157,7 +157,7 @@ export default function Footer() {
             <Link href="/" className="flex items-center gap-3 mb-5 group">
               <div className="w-10 h-10 bg-white rounded-lg overflow-hidden flex items-center justify-center p-1 group-hover:scale-105 transition-transform duration-200">
                 <Image
-                  src="/logo.jpg"
+                  src="/logo.png"
                   alt="CM Consulting Logo"
                   width={36}
                   height={36}

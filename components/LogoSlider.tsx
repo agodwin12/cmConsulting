@@ -32,8 +32,6 @@ export default function LogoSlider({ lang = "fr" }: LogoSliderProps) {
   const [current, setCurrent] = useState(0);
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
-  const goTo = (index: number) => setCurrent(index);
-
   const startTimer = () => {
     timerRef.current = setInterval(() => {
       setCurrent(prev => (prev + 1) % GROUPS.length);
@@ -97,12 +95,13 @@ export default function LogoSlider({ lang = "fr" }: LogoSliderProps) {
         </motion.h2>
       </div>
 
-      {/* Logo stage */}
+      {/* Stage — clips the sliding groups */}
       <div
         onMouseEnter={stopTimer}
         onMouseLeave={startTimer}
         style={{
           position: "relative",
+          overflow: "hidden",
           height: 140,
           display: "flex",
           alignItems: "center",
@@ -112,21 +111,32 @@ export default function LogoSlider({ lang = "fr" }: LogoSliderProps) {
         <AnimatePresence mode="wait">
           <motion.div
             key={current}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.7, ease: "easeInOut" }}
-            style={{ display: "flex", alignItems: "center", gap: "1.5rem" }}
+            initial={{ x: "100%", opacity: 0 }}
+            animate={{ x: 0,      opacity: 1 }}
+            exit={{    x: "-100%", opacity: 0 }}
+            transition={{ duration: 0.55, ease: [0.32, 0.72, 0, 1] }}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: "1.5rem",
+              width: "100%",
+              position: "absolute",
+            }}
           >
             {GROUPS[current].map((logo, i) => (
-              <div
+              <motion.div
                 key={i}
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: i * 0.07, ease: "easeOut" }}
                 style={{
                   width: 180,
                   height: 110,
                   background: "#fff",
                   border: "1.5px solid #e2e8f0",
                   borderRadius: 10,
+                  boxShadow: "0 2px 12px rgba(0,0,0,0.18)",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
@@ -134,7 +144,6 @@ export default function LogoSlider({ lang = "fr" }: LogoSliderProps) {
                   flexShrink: 0,
                   padding: 6,
                   boxSizing: "border-box" as const,
-                  transition: "transform 0.2s ease",
                 }}
               >
                 <Image
@@ -144,7 +153,7 @@ export default function LogoSlider({ lang = "fr" }: LogoSliderProps) {
                   height={110}
                   style={{ objectFit: "contain", width: "100%", height: "100%" }}
                 />
-              </div>
+              </motion.div>
             ))}
           </motion.div>
         </AnimatePresence>
@@ -155,7 +164,7 @@ export default function LogoSlider({ lang = "fr" }: LogoSliderProps) {
         {GROUPS.map((_, i) => (
           <button
             key={i}
-            onClick={() => goTo(i)}
+            onClick={() => { stopTimer(); setCurrent(i); startTimer(); }}
             aria-label={`Set ${i + 1}`}
             style={{
               width: 6, height: 6,
