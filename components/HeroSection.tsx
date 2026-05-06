@@ -6,21 +6,17 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 
-/* ─────────────────────────────────────────────────────────
-   SLIDES — one per service division, African context images
-───────────────────────────────────────────────────────── */
 const slides = [
   {
     id:       "conseil",
     brand:    "Conseil & Stratégie",
     eyebrow:  "Strategy · Growth · Leadership",
     headline: ["Helping African", "Businesses", "Grow & Scale."],
-    accent:   2, // which word index in headline gets colored
+    accent:   2,
     sub:      "Stratégie d'entreprise, plans de croissance et accompagnement des dirigeants camerounais. Du cap au résultat.",
     cta:      { label: "Demander un Devis", href: "/contact" },
     ctaAlt:   { label: "Nos Services", href: "/services#conseil" },
     image:    "https://images.unsplash.com/photo-1573497491765-dccce02b29df?w=1920&h=1080&fit=crop",
-    // African business meeting
     color:    "#3B82F6",
     colorName:"blue",
     stat:     { value: "200+", label: "Projets Réalisés" },
@@ -97,34 +93,19 @@ const slides = [
   },
 ];
 
-const DURATION = 6000; // 6 seconds per slide
+const DURATION = 6000;
 
-/* ─────────────────────────────────────────────────────────
-   COMPONENT
-───────────────────────────────────────────────────────── */
 export default function HeroSection() {
-  const [current, setCurrent]     = useState(0);
-  const [paused,  setPaused]      = useState(false);
-  const [progress, setProgress]   = useState(0);
+  const [current,  setCurrent]  = useState(0);
+  const [paused,   setPaused]   = useState(false);
+  const [progress, setProgress] = useState(0);
 
   const total = slides.length;
 
-  const next = useCallback(() => {
-    setCurrent((c) => (c + 1) % total);
-    setProgress(0);
-  }, [total]);
+  const next = useCallback(() => { setCurrent((c) => (c + 1) % total); setProgress(0); }, [total]);
+  const prev = useCallback(() => { setCurrent((c) => (c - 1 + total) % total); setProgress(0); }, [total]);
+  const goTo = useCallback((i: number) => { setCurrent(i); setProgress(0); }, []);
 
-  const prev = useCallback(() => {
-    setCurrent((c) => (c - 1 + total) % total);
-    setProgress(0);
-  }, [total]);
-
-  const goTo = useCallback((i: number) => {
-    setCurrent(i);
-    setProgress(0);
-  }, []);
-
-  /* Auto-advance */
   useEffect(() => {
     if (paused) return;
     const interval = setInterval(() => {
@@ -144,7 +125,7 @@ export default function HeroSection() {
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
-      {/* ── Background image with crossfade ───────────── */}
+      {/* Background image — no brightness filter, full color */}
       <AnimatePresence mode="sync">
         <motion.div
           key={slide.id + "-bg"}
@@ -161,13 +142,18 @@ export default function HeroSection() {
             className="object-cover"
             priority
           />
-          {/* Deep dark overlay — left-dominant for text legibility */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black/88 via-black/65 to-black/30" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/20" />
+          {/*
+            OVERLAY STRATEGY:
+            - Left side: enough darkness for white text to be readable (0.60)
+            - Right side: nearly transparent (0.10) so the image shines through
+            - Top/bottom: very light vignette only (0.25) — not a black wash
+          */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/35 to-black/10" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-black/10" />
         </motion.div>
       </AnimatePresence>
 
-      {/* ── Colored accent glow (top-right, matches slide color) ── */}
+      {/* Colored accent glow */}
       <AnimatePresence mode="sync">
         <motion.div
           key={slide.id + "-glow"}
@@ -180,7 +166,7 @@ export default function HeroSection() {
         />
       </AnimatePresence>
 
-      {/* ── Grain texture overlay ───────────────────── */}
+      {/* Grain texture */}
       <div
         className="absolute inset-0 z-0 opacity-[0.035] pointer-events-none"
         style={{
@@ -189,7 +175,7 @@ export default function HeroSection() {
         }}
       />
 
-      {/* ── Main content ───────────────────────────── */}
+      {/* Main content */}
       <div className="relative z-10 w-full px-6 lg:px-16 xl:px-24 pt-36 pb-32">
         <div className="max-w-3xl">
 
@@ -204,20 +190,18 @@ export default function HeroSection() {
               className="flex items-center gap-3 mb-7"
             >
               <span className="h-px w-10" style={{ background: slide.color }} />
-              <span
-                className="text-xs font-bold uppercase tracking-[0.2em]"
-                style={{ color: slide.color }}
-              >
+              <span className="text-xs font-bold uppercase tracking-[0.2em]" style={{ color: slide.color }}>
                 {slide.eyebrow}
               </span>
             </motion.div>
           </AnimatePresence>
 
-          {/* Headline — word-by-word stagger */}
+          {/* Headline */}
           <AnimatePresence mode="wait">
             <motion.h1
               key={slide.id + "-headline"}
               className="font-display text-[clamp(3rem,7vw,5.5rem)] text-white font-bold leading-[1.05] mb-6"
+              style={{ textShadow: "0 2px 20px rgba(0,0,0,0.4)" }}
             >
               {slide.headline.map((line, li) => (
                 <motion.span
@@ -225,11 +209,7 @@ export default function HeroSection() {
                   className="block"
                   initial={{ opacity: 0, y: 32 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{
-                    duration: 0.65,
-                    delay: li * 0.12,
-                    ease: [0.22, 1, 0.36, 1],
-                  }}
+                  transition={{ duration: 0.65, delay: li * 0.12, ease: [0.22, 1, 0.36, 1] }}
                   style={li === slide.accent ? { color: slide.color } : {}}
                 >
                   {line}
@@ -246,7 +226,8 @@ export default function HeroSection() {
               animate={{ opacity: 1, y: 0 }}
               exit={{    opacity: 0, y: -10 }}
               transition={{ duration: 0.55, delay: 0.35, ease: "easeOut" }}
-              className="text-white/60 text-base lg:text-lg leading-relaxed max-w-xl mb-10"
+              className="text-white/80 text-base lg:text-lg leading-relaxed max-w-xl mb-10"
+              style={{ textShadow: "0 1px 8px rgba(0,0,0,0.5)" }}
             >
               {slide.sub}
             </motion.p>
@@ -264,7 +245,7 @@ export default function HeroSection() {
             >
               <Link
                 href={slide.cta.href}
-                className="inline-flex items-center gap-2 text-white font-semibold px-7 py-3.5 rounded-xl transition-all duration-200 hover:-translate-y-0.8 group text-sm"
+                className="inline-flex items-center gap-2 text-white font-semibold px-7 py-3.5 rounded-xl transition-all duration-200 hover:-translate-y-0.5 group text-sm shadow-lg"
                 style={{ background: slide.color }}
               >
                 {slide.cta.label}
@@ -272,7 +253,7 @@ export default function HeroSection() {
               </Link>
               <Link
                 href={slide.ctaAlt.href}
-                className="inline-flex items-center gap-2 text-white/75 hover:text-white border border-white/20 hover:border-white/40 px-7 py-3.5 rounded-xl text-sm font-semibold transition-all duration-200"
+                className="inline-flex items-center gap-2 text-white border border-white/40 hover:border-white/70 hover:bg-white/10 px-7 py-3.5 rounded-xl text-sm font-semibold transition-all duration-200 backdrop-blur-sm"
               >
                 {slide.ctaAlt.label}
               </Link>
@@ -287,19 +268,16 @@ export default function HeroSection() {
               animate={{ opacity: 1, scale: 1 }}
               exit={{    opacity: 0, scale: 0.9 }}
               transition={{ duration: 0.45, delay: 0.55 }}
-              className="inline-flex items-center gap-4 bg-white/8 backdrop-blur-sm border border-white/12 rounded-2xl px-6 py-4"
+              className="inline-flex items-center gap-4 bg-black/30 backdrop-blur-md border border-white/20 rounded-2xl px-6 py-4"
             >
               <div>
-                <div
-                  className="font-display text-3xl font-bold leading-none"
-                  style={{ color: slide.color }}
-                >
+                <div className="font-display text-3xl font-bold leading-none" style={{ color: slide.color }}>
                   {slide.stat.value}
                 </div>
-                <div className="text-white/50 text-xs mt-1">{slide.stat.label}</div>
+                <div className="text-white/70 text-xs mt-1">{slide.stat.label}</div>
               </div>
-              <div className="w-px h-10 bg-white/10" />
-              <div className="text-white/60 text-xs leading-relaxed max-w-[120px]">
+              <div className="w-px h-10 bg-white/20" />
+              <div className="text-white/70 text-xs leading-relaxed max-w-[120px]">
                 {slide.brand}
               </div>
             </motion.div>
@@ -307,19 +285,16 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* ── Slide indicators + nav (bottom center) ─── */}
+      {/* Bottom nav */}
       <div className="absolute bottom-10 left-0 right-0 z-20 flex items-center justify-center gap-6 px-6">
-
-        {/* Prev */}
         <button
           onClick={prev}
-          className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 border border-white/15 flex items-center justify-center text-white/70 hover:text-white transition-all"
+          className="w-9 h-9 rounded-full bg-black/30 hover:bg-black/50 border border-white/25 flex items-center justify-center text-white/80 hover:text-white transition-all backdrop-blur-sm"
           aria-label="Précédent"
         >
           <ChevronLeft size={16} />
         </button>
 
-        {/* Progress dots */}
         <div className="flex items-center gap-2">
           {slides.map((s, i) => (
             <button
@@ -327,7 +302,7 @@ export default function HeroSection() {
               onClick={() => goTo(i)}
               aria-label={s.brand}
               className="relative h-1 rounded-full overflow-hidden transition-all duration-300"
-              style={{ width: i === current ? 48 : 20, background: "rgba(255,255,255,0.2)" }}
+              style={{ width: i === current ? 48 : 20, background: "rgba(255,255,255,0.3)" }}
             >
               {i === current && (
                 <motion.div
@@ -339,34 +314,32 @@ export default function HeroSection() {
           ))}
         </div>
 
-        {/* Next */}
         <button
           onClick={next}
-          className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 border border-white/15 flex items-center justify-center text-white/70 hover:text-white transition-all"
+          className="w-9 h-9 rounded-full bg-black/30 hover:bg-black/50 border border-white/25 flex items-center justify-center text-white/80 hover:text-white transition-all backdrop-blur-sm"
           aria-label="Suivant"
         >
           <ChevronRight size={16} />
         </button>
 
-        {/* Slide counter */}
-        <span className="text-white/35 text-xs font-mono tabular-nums">
+        <span className="text-white/50 text-xs font-mono tabular-nums">
           {String(current + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}
         </span>
       </div>
 
-      {/* ── Right-side vertical service tabs ──────────── */}
+      {/* Right-side vertical tabs */}
       <div className="absolute right-6 top-1/2 -translate-y-1/2 z-20 hidden xl:flex flex-col gap-2">
         {slides.map((s, i) => (
           <button
             key={s.id}
             onClick={() => goTo(i)}
             className={`group flex items-center gap-2 px-3 py-2 rounded-lg transition-all duration-300 text-right ${
-              i === current ? "bg-white/12 border border-white/20" : "hover:bg-white/8"
+              i === current ? "bg-black/30 backdrop-blur-sm border border-white/20" : "hover:bg-black/20"
             }`}
           >
             <span
               className={`text-xs font-semibold transition-all duration-300 ${
-                i === current ? "text-white" : "text-white/35 group-hover:text-white/60"
+                i === current ? "text-white" : "text-white/50 group-hover:text-white/75"
               }`}
               style={{ maxWidth: 120, textAlign: "right", display: "block" }}
             >
@@ -375,7 +348,7 @@ export default function HeroSection() {
             <span
               className="w-1.5 h-1.5 rounded-full shrink-0 transition-all duration-300"
               style={{
-                background: i === current ? s.color : "rgba(255,255,255,0.25)",
+                background: i === current ? s.color : "rgba(255,255,255,0.35)",
                 boxShadow: i === current ? `0 0 8px ${s.color}` : "none",
               }}
             />
@@ -383,7 +356,7 @@ export default function HeroSection() {
         ))}
       </div>
 
-      {/* ── Bottom gradient fade to white ─────────────── */}
+      {/* Bottom gradient fade */}
       <div className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-t from-white to-transparent pointer-events-none z-10" />
     </section>
   );

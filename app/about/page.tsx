@@ -63,7 +63,7 @@ const divisions = [
     icon:     <ShoppingBag size={24} />,
     name:     "CM Shop",
     subtitle: "Vente de Matériel & Accessoires",
-    desc:     "CM Shop est une boutique polyvalente proposant une large gamme de produits, allant du matériel informatique, téléphones et accessoires à divers articles de consommation courante. Nous nous engageons à offrir des produits de qualité, à des prix compétitifs, avec un service de livraison fiable sur l’ensemble du territoire camerounais.",
+    desc:     "CM Shop est une boutique polyvalente proposant une large gamme de produits, allant du matériel informatique, téléphones et accessoires à divers articles de consommation courante. Nous nous engageons à offrir des produits de qualité, à des prix compétitifs, avec un service de livraison fiable sur l'ensemble du territoire camerounais.",
     color:    "border-yellow-500/30 bg-yellow-500/5",
     iconBg:   "bg-yellow-500/15 text-yellow-400",
     href:     "/services#shop",
@@ -112,24 +112,24 @@ const values = [
 
 const teamMembers = [
   {
-    name:  "Awah Godwin",
-    role:  "Directeur Général",
-    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop&crop=face",
+    name:  "Christian Merlin SIMALAK",
+    role:  "Business Developper / Communicatieur Visuel",
+    image: "/workers/a1.jpg",
   },
   {
-    name:  "Sophie Nkemdirim",
-    role:  "Directrice Conseil & Stratégie",
-    image: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=400&h=400&fit=crop&crop=face",
+    name:  "Laura SEN",
+    role:  "Business Consultant / Expert en Packaging",
+    image: "/workers/a3.jpg",
   },
   {
-    name:  "Didier Mbarga",
-    role:  "Responsable Technique",
-    image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop&crop=face",
+    name:  "Erick MINTAMACK",
+    role:  "Expert en Marketing",
+    image: "/workers/a2.jpg",
   },
   {
-    name:  "Grace Fouda",
-    role:  "Directrice CM Graphic",
-    image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=400&h=400&fit=crop&crop=face",
+    name:  "Awah Wilbroad NDE",
+    role:  "Ingenieur Logiciel / Solution Cloud ",
+    image: "/workers/a4.jpg",
   },
 ];
 
@@ -424,7 +424,7 @@ export default function AboutPage() {
       </section>
 
       {/* ══════════════════════════════════════════════════
-          5. NOTRE HISTOIRE (TIMELINE) — unchanged
+          5. NOTRE HISTOIRE (TIMELINE)
       ══════════════════════════════════════════════════ */}
       <section className="bg-brand-black py-20 lg:py-28">
         <div className="w-full px-6 lg:px-16 xl:px-24">
