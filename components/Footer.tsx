@@ -21,22 +21,22 @@ import {
 /* ─────────────────────────────────────────────────────────
    DATA
 ───────────────────────────────────────────────────────── */
-const divisions = [
+const footerServices = [
   {
     icon:  <BarChart2 size={15} />,
-    name:  "CM Consulting",
+    name:  "Conseil & Stratégie",
     href:  "/services#conseil",
     color: "text-brand-blue-400",
   },
   {
     icon:  <Wrench size={15} />,
-    name:  "D-Panneur",
+    name:  "Maintenance Informatique & Réseaux",
     href:  "/services#depannage",
     color: "text-orange-400",
   },
   {
     icon:  <Palette size={15} />,
-    name:  "CM Graphic",
+    name:  "Communication Visuelle",
     href:  "/services#graphique",
     color: "text-pink-400",
   },
@@ -48,8 +48,8 @@ const divisions = [
   },
   {
     icon:  <ShoppingBag size={15} />,
-    name:  "CM Shop",
-    href:  "/services#shop",
+    name:  "Boutique en Ligne",
+    href:  "/shop",
     color: "text-yellow-400",
   },
   {
@@ -109,12 +109,12 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-brand-black text-white/65">
+    <footer className="bg-black text-white/65">
 
       {/* ══════════════════════════════════════════════
           TOP CTA BAND
       ══════════════════════════════════════════════ */}
-      <div className="border-b border-white/8 bg-brand-darkgray">
+      <div className="border-b border-white/8 bg-[#0a0a0a]">
         <div className="w-full px-6 lg:px-16 xl:px-24 py-10 flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
             <h3 className="font-display text-white text-2xl font-bold mb-1">
@@ -155,7 +155,7 @@ export default function Footer() {
           <div className="lg:col-span-1">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-3 mb-5 group">
-              <div className="w-10 h-10 bg-white rounded-lg overflow-hidden flex items-center justify-center p-1 group-hover:scale-105 transition-transform duration-200">
+              <div className="w-10 h-10 bg-black border border-white/15 rounded-lg overflow-hidden flex items-center justify-center p-1 group-hover:scale-105 transition-transform duration-200">
                 <Image
                   src="/logo.png"
                   alt="CM Consulting Logo"
@@ -196,14 +196,14 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* ── Column 2: Nos Services (Divisions) ────── */}
+          {/* ── Column 2: Nos Services ─────────────────── */}
           <div>
             <h4 className="text-white text-xs font-bold uppercase tracking-widest mb-6 flex items-center gap-2">
               <span className="h-3 w-0.5 bg-brand-blue-500 rounded-full" />
               Nos Services
             </h4>
             <ul className="space-y-3">
-              {divisions.map(({ icon, name, href, color }) => (
+              {footerServices.map(({ icon, name, href, color }) => (
                 <li key={name}>
                   <Link
                     href={href}
@@ -392,4 +392,4 @@ export default function Footer() {
 
     </footer>
   );
-}
+}

@@ -73,3 +73,77 @@ body {
   outline-offset: 3px;
   border-radius: 2px;
 }
+
+/* ── Partner logo marquee (components/LogoSlider.tsx) ───────────
+   One row of logo tiles travelling at a constant speed, looping
+   seamlessly. The first <ul> is the "period": the track is exactly
+   as wide as that set, the copies are pinned at left: 100%, 200%, …
+   and the track slides by -100% (= one set) per cycle, so the loop
+   point is invisible whatever the viewport or the number of copies. */
+.logo-marquee {
+  --logo-h: clamp(76px, 6vw + 40px, 120px);   /* tile height, scales with the viewport */
+  --logo-gap: clamp(1rem, 2.5vw, 2.5rem);
+  --marquee-duration: 40s;                      /* overridden inline: set width ÷ speed */
+  position: relative;
+  overflow: hidden;
+  padding: 10px 0 36px;                         /* room for the hover lift and the shadow */
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+          mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+}
+.logo-marquee__track {
+  position: relative;
+  display: flex;
+  width: max-content;                           /* = width of the first set = one period */
+  will-change: transform;
+  animation: logo-marquee-scroll var(--marquee-duration) linear infinite;
+}
+.logo-marquee[data-direction="right"] .logo-marquee__track {
+  animation-direction: reverse;
+}
+.logo-marquee__set {
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+  gap: var(--logo-gap);
+  padding: 0 var(--logo-gap) 0 0;               /* trailing gap → set width = exact period */
+  margin: 0;
+  list-style: none;
+}
+.logo-marquee__set--copy {
+  position: absolute;
+  top: 0;
+  left: calc(var(--marquee-offset, 1) * 100%);
+}
+.logo-marquee__tile {
+  flex: 0 0 auto;
+  height: var(--logo-h);
+  aspect-ratio: var(--ratio, 1);                /* tile width follows the logo's own ratio */
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 0 0 1px rgba(255,255,255,.06), 0 8px 24px rgba(0,0,0,.35);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.logo-marquee__tile:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 0 1px rgba(41,171,226,.55), 0 12px 28px rgba(0,0,0,.45);
+}
+.logo-marquee__tile img {
+  display: block;
+  height: 100%;
+  width: auto;                                  /* fills the tile edge to edge, no crop */
+  max-width: none;
+  -webkit-user-drag: none;
+  user-select: none;
+}
+@keyframes logo-marquee-scroll {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-100%, 0, 0); }
+}
+/* OS-level "reduce motion": show every logo once, as a static centred grid */
+@media (prefers-reduced-motion: reduce) {
+  .logo-marquee { -webkit-mask-image: none; mask-image: none; }
+  .logo-marquee__track { display: block; width: auto; animation: none; }
+  .logo-marquee__set { flex-wrap: wrap; justify-content: center; padding: 0 var(--logo-gap); }
+  .logo-marquee__set--copy { display: none; }
+}

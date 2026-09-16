@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useEffect, useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -14,6 +14,8 @@ import {
   AlertCircle,
   SlidersHorizontal,
   X,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 // Replace line 18 with:
 import {
@@ -177,6 +179,221 @@ function ProductCard({ product }: { product: Product }) {
 }
 
 /* ─────────────────────────────────────────────────────────
+   VENDOR LISTINGS — posted by sellers via the backoffice
+   Category, title, images, description, price — filterable by
+   category (pills sourced live from the backoffice's database),
+   kept visually distinct from the curated CM Shop catalog above.
+───────────────────────────────────────────────────────── */
+interface SellerListing {
+  id:          string;
+  /** 1 to 5 photos, in the order the seller arranged them. */
+  imageUrls:   string[];
+  title:       string;
+  description: string;
+  price:       number;
+  category:    string | null;
+}
+
+function buildListingWhatsAppUrl(listing: SellerListing): string {
+  const msg =
+    `Bonjour CM Shop 237 👋\n\nJe suis intéressé(e) par cette annonce :\n\n` +
+    `📦 *${listing.title}*\n` +
+    `${listing.description}\n` +
+    `💰 Prix : ${listing.price.toLocaleString("fr-FR")} FCFA\n` +
+    `\nPouvez-vous me donner plus d'informations sur la disponibilité et la livraison ? Merci !`;
+  return `https://wa.me/${SHOP_WHATSAPP}?text=${encodeURIComponent(msg)}`;
+}
+
+function ListingCard({ listing }: { listing: SellerListing }) {
+  const [imgIndex, setImgIndex] = useState(0);
+  const hasMultiple = listing.imageUrls.length > 1;
+
+  function prevImage(e: React.MouseEvent) {
+    e.preventDefault();
+    e.stopPropagation();
+    setImgIndex((i) => (i === 0 ? listing.imageUrls.length - 1 : i - 1));
+  }
+  function nextImage(e: React.MouseEvent) {
+    e.preventDefault();
+    e.stopPropagation();
+    setImgIndex((i) => (i === listing.imageUrls.length - 1 ? 0 : i + 1));
+  }
+
+  return (
+    <div className="group bg-white rounded-2xl border border-slate-100 hover:border-yellow-300 hover:shadow-card-lg transition-all duration-300 overflow-hidden flex flex-col">
+      <div className="relative h-52 bg-slate-50 overflow-hidden">
+        {/* Cross-origin image served by the separate backoffice app —
+            next/image would need remotePatterns for its host, which
+            would break the moment that host changes; a plain <img>
+            avoids that coupling entirely. */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={listing.imageUrls[imgIndex]}
+          alt=""
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+        <span className="absolute top-3 left-3 bg-yellow-400 text-brand-black text-xs font-bold px-2.5 py-1 rounded-full">
+          Vendeur Partenaire
+        </span>
+
+        {hasMultiple && (
+          <>
+            <button
+              type="button"
+              onClick={prevImage}
+              aria-label="Photo précédente"
+              className="absolute left-2 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-black/40 hover:bg-black/60 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+            >
+              <ChevronLeft size={15} />
+            </button>
+            <button
+              type="button"
+              onClick={nextImage}
+              aria-label="Photo suivante"
+              className="absolute right-2 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-black/40 hover:bg-black/60 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+            >
+              <ChevronRight size={15} />
+            </button>
+            <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex items-center gap-1.5">
+              {listing.imageUrls.map((_, i) => (
+                <span
+                  key={i}
+                  className={`h-1.5 rounded-full transition-all ${
+                    i === imgIndex ? "w-4 bg-white" : "w-1.5 bg-white/50"
+                  }`}
+                />
+              ))}
+            </div>
+          </>
+        )}
+      </div>
+
+      <div className="p-5 flex flex-col flex-1">
+        {listing.category && (
+          <p className="text-yellow-600 text-xs font-semibold uppercase tracking-wider mb-1.5">
+            {listing.category}
+          </p>
+        )}
+        <h3 className="font-display font-bold text-brand-black text-base leading-snug mb-2 line-clamp-2">
+          {listing.title}
+        </h3>
+        <p className="text-slate-500 text-sm leading-relaxed mb-4 line-clamp-3 flex-1">
+          {listing.description}
+        </p>
+
+        <div className="flex items-baseline gap-2 mb-4">
+          <span className="font-display text-2xl font-bold text-brand-black">
+            {listing.price.toLocaleString("fr-FR")}
+          </span>
+          <span className="text-slate-400 text-sm">FCFA</span>
+        </div>
+
+        <a
+          href={buildListingWhatsAppUrl(listing)}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center justify-between bg-[#25D366] hover:bg-[#1ebe59] text-white font-semibold px-4 py-3 rounded-xl text-sm transition-all duration-200 hover:-translate-y-0.5 group/btn"
+        >
+          <span className="flex items-center gap-2">
+            <MessageCircle size={16} />
+            Commander via WhatsApp
+          </span>
+          <ArrowRight size={14} className="group-hover/btn:translate-x-1 transition-transform" />
+        </a>
+      </div>
+    </div>
+  );
+}
+
+function SellerListingsSection() {
+  const [listings, setListings] = useState<SellerListing[] | null>(null);
+  const [activeCategory, setActiveCategory] = useState<string | "Tous">("Tous");
+
+  useEffect(() => {
+    let cancelled = false;
+    fetch("/api/products")
+      .then((res) => (res.ok ? res.json() : { products: [] }))
+      .then((data) => {
+        if (!cancelled) setListings(data.products ?? []);
+      })
+      .catch(() => {
+        if (!cancelled) setListings([]);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  // Nothing posted yet (or the backoffice is offline) — stay quiet rather
+  // than showing an empty section on the public site.
+  if (!listings || listings.length === 0) return null;
+
+  // Filter pills come from what's actually posted right now (pulled live
+  // from the backoffice's category table via /api/products) — a category
+  // with zero current listings just doesn't get a pill, so a visitor never
+  // filters into an empty grid.
+  const categoryNames = Array.from(
+    new Set(listings.map((l) => l.category).filter((c): c is string => c !== null))
+  );
+  const filtered =
+    activeCategory === "Tous" ? listings : listings.filter((l) => l.category === activeCategory);
+
+  return (
+    <section className="bg-white py-16 border-t border-slate-100">
+      <div className="w-full px-6 lg:px-16 xl:px-24">
+        <div className="flex items-center gap-3 mb-3">
+          <span className="h-px w-10 bg-yellow-400" />
+          <span className="text-yellow-600 text-xs font-semibold uppercase tracking-widest">
+            Publié par nos vendeurs partenaires
+          </span>
+        </div>
+        <h2 className="font-display text-3xl lg:text-4xl font-bold text-brand-black mb-6">
+          Annonces de Nos Vendeurs
+        </h2>
+
+        {categoryNames.length > 1 && (
+          <div className="flex flex-wrap items-center gap-2 mb-8">
+            <button
+              onClick={() => setActiveCategory("Tous")}
+              className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all duration-200 ${
+                activeCategory === "Tous"
+                  ? "bg-brand-black text-white"
+                  : "bg-slate-100 text-slate-500 hover:bg-slate-200"
+              }`}
+            >
+              Tous ({listings.length})
+            </button>
+            {categoryNames.map((cat) => {
+              const count = listings.filter((l) => l.category === cat).length;
+              return (
+                <button
+                  key={cat}
+                  onClick={() => setActiveCategory(cat)}
+                  className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all duration-200 whitespace-nowrap ${
+                    activeCategory === cat
+                      ? "bg-yellow-400 text-brand-black"
+                      : "bg-slate-100 text-slate-500 hover:bg-slate-200"
+                  }`}
+                >
+                  {cat} ({count})
+                </button>
+              );
+            })}
+          </div>
+        )}
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          {filtered.map((listing) => (
+            <ListingCard key={listing.id} listing={listing} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ─────────────────────────────────────────────────────────
    MAIN PAGE
 ───────────────────────────────────────────────────────── */
 export default function ShopPage() {
@@ -260,6 +477,13 @@ export default function ShopPage() {
         </div>
       </section>
 
+      {/* Sections 2 & 3 (search/filters + curated grid) only make sense once
+          there's a curated catalog to search and filter — with `products`
+          empty they'd show nothing but a dead search bar and an empty
+          state. Hidden as one block rather than leaving that clutter up
+          while every visible product comes from the vendor section below. */}
+      {products.length > 0 && (
+      <>
       {/* ══════════════════════════════════════════════════
           2. STICKY SEARCH + FILTERS BAR
       ══════════════════════════════════════════════════ */}
@@ -477,6 +701,13 @@ export default function ShopPage() {
           )}
         </div>
       </section>
+      </>
+      )}
+
+      {/* ══════════════════════════════════════════════════
+          3b. VENDOR LISTINGS — posted by sellers via the backoffice
+      ══════════════════════════════════════════════════ */}
+      <SellerListingsSection />
 
       {/* ══════════════════════════════════════════════════
           4. HOW TO ORDER
@@ -670,4 +901,4 @@ export default function ShopPage() {
       </a>
     </>
   );
-}
+}

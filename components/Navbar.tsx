@@ -175,7 +175,7 @@ export default function Navbar() {
 
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3 group shrink-0">
-          <div className=" w-15 h-15 bg-transparent  overflow-hidden flex items-center justify-center p-1 group-hover:scale-105 transition-transform duration-200">
+          <div className="bg-black rounded-xl overflow-hidden flex items-center justify-center p-1 group-hover:scale-105 transition-transform duration-200">
             <Image
               src="/logo.png"
               alt="CM Consulting Logo"
@@ -222,23 +222,6 @@ export default function Navbar() {
                 <motion.span
                   layoutId="nav-underline"
                   className="absolute -bottom-1 left-0 right-0 h-0.5 bg-blue-500 rounded-full"
-                />
-              )}
-            </Link>
-          </li>
-
-          {/* Boutique */}
-          <li>
-            <Link
-              href="/shop"
-              className={`relative text-sm font-medium tracking-wide transition-colors duration-200
-                ${pathname === "/shop" ? "text-yellow-400" : "text-white hover:text-white/75"}`}
-            >
-              {lang === "fr" ? "Boutique" : "Shop"}
-              {pathname === "/shop" && (
-                <motion.span
-                  layoutId="nav-underline"
-                  className="absolute -bottom-1 left-0 right-0 h-0.5 bg-yellow-400 rounded-full"
                 />
               )}
             </Link>
@@ -309,6 +292,22 @@ export default function Navbar() {
                 </motion.div>
               )}
             </AnimatePresence>
+          </li>
+
+          {/* Boutique — highlighted pill that draws the eye */}
+          <li>
+            <Link
+              href="/shop"
+              className={`relative inline-flex items-center gap-2 rounded-full bg-yellow-400 px-4 py-1.5 text-sm font-bold text-black shadow-[0_0_18px_rgba(250,204,21,0.35)] transition-all duration-200 hover:bg-yellow-300 hover:shadow-[0_0_26px_rgba(250,204,21,0.55)] hover:-translate-y-0.5
+                ${pathname === "/shop" ? "ring-2 ring-yellow-300/70 ring-offset-2 ring-offset-black" : ""}`}
+            >
+              <ShoppingBag size={15} />
+              {lang === "fr" ? "Boutique" : "Shop"}
+              <span aria-hidden className="absolute -right-1 -top-1 flex h-2.5 w-2.5">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-yellow-400 opacity-75" />
+                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-yellow-300" />
+              </span>
+            </Link>
           </li>
 
           {/* Projets */}
@@ -460,16 +459,6 @@ export default function Navbar() {
                 {tx.about}
               </Link>
 
-              {/* Boutique */}
-              <Link
-                href="/shop"
-                className={`flex items-center gap-2 py-3 text-sm font-medium border-b border-white/5 transition-colors
-                  ${pathname === "/shop" ? "text-yellow-400" : "text-white hover:text-white/75"}`}
-              >
-                <ShoppingBag size={15} className={pathname === "/shop" ? "text-yellow-400" : "text-white/40"} />
-                {lang === "fr" ? "Boutique" : "Shop"}
-              </Link>
-
               {/* Services accordion */}
               <div className="border-b border-white/5">
                 <button
@@ -507,6 +496,17 @@ export default function Navbar() {
                     </motion.div>
                   )}
                 </AnimatePresence>
+              </div>
+
+              {/* Boutique — highlighted button that draws the eye */}
+              <div className="border-b border-white/5 py-3">
+                <Link
+                  href="/shop"
+                  className="flex items-center justify-center gap-2 rounded-xl bg-yellow-400 py-3 text-sm font-bold text-black shadow-[0_0_18px_rgba(250,204,21,0.35)] transition-colors hover:bg-yellow-300"
+                >
+                  <ShoppingBag size={15} />
+                  {lang === "fr" ? "Boutique" : "Shop"}
+                </Link>
               </div>
 
               {/* Projets */}

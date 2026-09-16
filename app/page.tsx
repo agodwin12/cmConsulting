@@ -67,7 +67,7 @@ const slides = [
     id:       "depannage",
     brand:    "Informatique & Dépannage",
     eyebrow:  "Conception · Maintenance · Support",
-    headline: ["Votre réussite", "numérique  Notre savoir-faire technique", " "],
+    headline: ["Votre réussite", "numérique,", "notre savoir-faire."],
     accent:   2,
     sub:      "",
     cta:      { label: "Demarrer un projet", href: "/contact" },
@@ -80,7 +80,7 @@ const slides = [
     id:       "graphique",
     brand:    "Création Graphique",
     eyebrow:  "Design · Branding · Print",
-    headline: ["Nous concevons", "l'univers graphique", "de votre succès,"],
+    headline: ["Nous concevons", "l'univers graphique", "de votre succès."],
     accent:   2,
     sub:      "",
     cta:      { label: "Lancer un Projet", href: "/contact" },
@@ -93,7 +93,7 @@ const slides = [
     id:       "dev",
     brand:    "Développement Logiciel",
     eyebrow:  "Web · Mobile · Logiciels",
-    headline: ["Des Solutions", "Digitales adaptées", "à vos besoin."],
+    headline: ["Des Solutions", "Digitales adaptées", "à vos besoins."],
     accent:   2,
     sub:      "",
     cta:      { label: "Démarrer un Projet", href: "/contact" },
@@ -176,9 +176,9 @@ const services = [
     icon:        <ShoppingBag size={26} />,
     iconColor:   "text-brand-blue-400",
     hoverBg:     "group-hover:bg-brand-blue-500",
-    title:       "Boutique enligne",
+    title:       "Boutique en ligne",
     titleEn:     "CM Shop",
-    description: "Vente des articles divers en gros et detail  .",
+    description: "Boutique spécialisée en matériel électronique.",
     href:        "/shop",
   },
   {
@@ -234,35 +234,25 @@ const testimonials = [
   },
 ];
 
-const blogPosts = [
-  {
-    category: "Stratégie",
-    title:    "Comment les PME camerounaises peuvent se transformer digitalement",
-    excerpt:  "La transformation numérique n'est plus réservée aux grandes entreprises. Voici comment les PME au Cameroun peuvent franchir le pas avec succès.",
-    date:     "20 Mars 2024",
-    readTime: "6 min",
-    /* Black professionals in business meeting */
-    image:    "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&h=400&fit=crop",
-  },
-  {
-    category: "Informatique",
-    title:    "5 signes que votre ordinateur a besoin d'une maintenance urgente",
-    excerpt:  "Lenteur, surchauffe, plantages fréquents... Ne laissez pas ces problèmes paralyser votre activité. Apprenez à les reconnaître à temps.",
-    date:     "12 Avril 2024",
-    readTime: "4 min",
-    /* Tech repair close-up */
-    image:    "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=600&h=400&fit=crop",
-  },
-  {
-    category: "Graphisme",
-    title:    "Pourquoi une identité visuelle forte est clé pour votre business au Cameroun",
-    excerpt:  "Dans un marché compétitif comme Douala, se démarquer visuellement n'est pas un luxe — c'est une nécessité. Voici pourquoi.",
-    date:     "28 Mars 2024",
-    readTime: "5 min",
-    /* Design / branding workspace */
-    image:    "https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=600&h=400&fit=crop",
-  },
-];
+/**
+ * Real blog posts, fetched client-side from the backoffice via the same-
+ * origin /api/blog proxy (this page is a client component, so it can't
+ * read BACKOFFICE_URL itself — see app/api/blog/route.ts). Section 8 below
+ * hides itself entirely while this is empty, same pattern as the Boutique
+ * page's vendor listings.
+ */
+interface BlogPostSummary {
+  slug:      string;
+  title:     string;
+  category:  string | null;
+  excerpt:   string;
+  coverUrl:  string | null;
+  createdAt: string;
+}
+
+function formatBlogDate(iso: string): string {
+  return new Date(iso).toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric" });
+}
 
 const divisions = [
   {
@@ -295,6 +285,26 @@ const divisions = [
    PAGE COMPONENT
 ───────────────────────────────────────────────────────── */
 export default function HomePage() {
+
+  /* ── Blog preview (section 8) ───────────────────────────
+     Fetched once on mount; fails soft to an empty array if the
+     backoffice is offline, which hides the whole section below. */
+  const [blogPosts, setBlogPosts] = useState<BlogPostSummary[]>([]);
+
+  useEffect(() => {
+    let cancelled = false;
+    fetch("/api/blog")
+      .then((res) => (res.ok ? res.json() : { posts: [] }))
+      .then((data) => {
+        if (!cancelled) setBlogPosts((data.posts ?? []).slice(0, 3));
+      })
+      .catch(() => {
+        if (!cancelled) setBlogPosts([]);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   /* ── Hero slideshow ──────────────────────────────────── */
   const [current,  setCurrent]  = useState(0);
@@ -349,8 +359,8 @@ export default function HomePage() {
               priority
             />
             {/* Black gradi— always consistent regardless of slide */}
-            <div className="absolute inset-0 bg-gradient-to-r from-brand-black/95 via-brand-black/80 to-brand-black/50" />
-            <div className="absolute inset-0 bg-gradient-to-t from-brand-black/80 via-transparent to-brand-black/30" />
+            <div className="absolute inset-0 bg-gradient-to-r from-brand-black/85 via-brand-black/35 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent" />
           </motion.div>
         </AnimatePresence>
 
@@ -370,7 +380,8 @@ export default function HomePage() {
 
         {/* Slide content */}
         <div className="relative z-10 w-full px-6 lg:px-16 xl:px-24 pt-40 pb-36">
-          <div className="max-w-3xl">
+          {/* Size container: the headline font scales with this column (cqw) so its 3 lines always fit */}
+          <div className="max-w-3xl [container-type:inline-size]">
 
             {/* Eyebrow */}
             <AnimatePresence mode="wait">
@@ -394,11 +405,13 @@ export default function HomePage() {
               <motion.h1
                 key={slide.id + "-h1"}
                 className="font-display text-[clamp(3rem,7vw,5.5rem)] text-white font-bold leading-[1.05] mb-6"
+                /* Always 3 lines: lines never wrap and the font size follows the column width */
+                style={{ fontSize: "min(5.5rem, 9.4cqw)" }}
               >
                 {slide.headline.map((line, li) => (
                   <motion.span
                     key={li}
-                    className="block"
+                    className="block whitespace-nowrap"
                     initial={{ opacity: 0, y: 32 }}
                     animate={{ opacity: 1, y: 0  }}
                     transition={{ duration: 0.65, delay: li * 0.12, ease: [0.22, 1, 0.36, 1] }}
@@ -608,7 +621,7 @@ export default function HomePage() {
         <div className="w-full px-6 lg:px-16 xl:px-24">
           <motion.div {...fadeUp(0)} className="text-center mb-8">
             <p className="text-white/30 text-xs uppercase tracking-widest font-semibold">
-              Notre Groupe · Nos Divisions
+              CM · Nos Départements
             </p>
           </motion.div>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
@@ -658,7 +671,7 @@ export default function HomePage() {
             </div>
             <motion.div {...fadeUp(0.15)}>
               <p className="text-slate-500 leading-relaxed mb-5">
-                Du conseil stratégique au développement logiciel, en passant par le design et le E-commerce, CM Group couvre tous vos besoins en un seul endroit.
+                Du conseil stratégique au développement logiciel, en passant par le design et le E-commerce, CM couvre tous vos besoins en un seul endroit.
               </p>
               <Link
                 href="/services"
@@ -947,7 +960,11 @@ export default function HomePage() {
 
       {/* ══════════════════════════════════════════════════
           8. BLOG — white bg
+          Hidden entirely while there are no real posts yet
+          (same "stay quiet rather than show fake/empty content"
+          rule as the Boutique's vendor-listings section).
       ══════════════════════════════════════════════════ */}
+      {blogPosts.length > 0 && (
       <section className="bg-white py-28">
         <div className="w-full px-6 lg:px-16 xl:px-24">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
@@ -973,36 +990,42 @@ export default function HomePage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {blogPosts.map(({ category, title, excerpt, date, readTime, image }, i) => (
+            {blogPosts.map((post, i) => (
               <motion.article
-                key={title}
+                key={post.slug}
                 {...fadeUp(i * 0.1)}
                 className="group bg-white rounded-2xl border border-slate-100 overflow-hidden hover:shadow-card-lg hover:border-brand-blue-200 transition-all duration-300"
               >
-                <div className="relative h-52 overflow-hidden">
-                  <Image
-                    src={image}
-                    alt={title}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
+                <Link href={`/blog/${post.slug}`} className="block relative h-52 overflow-hidden bg-brand-darkgray">
+                  {post.coverUrl && (
+                    // Cross-origin image served by the separate backoffice app —
+                    // next/image would need remotePatterns for its host, which
+                    // would break the moment that host changes; a plain <img>
+                    // avoids that coupling entirely.
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      src={post.coverUrl}
+                      alt=""
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  )}
                   <div className="absolute inset-0 bg-gradient-to-t from-brand-black/50 to-transparent" />
                   {/* Category badge — brand blue */}
                   <span className="absolute top-4 left-4 bg-brand-blue-500 text-white text-xs font-semibold px-3 py-1 rounded-full">
-                    {category}
+                    {post.category ?? "Article"}
                   </span>
-                </div>
+                </Link>
 
                 <div className="p-6">
                   <div className="flex items-center gap-3 text-slate-400 text-xs mb-3">
-                    <span>{date}</span><span>·</span><span>{readTime} de lecture</span>
+                    <span>{formatBlogDate(post.createdAt)}</span>
                   </div>
                   <h3 className="font-display text-lg font-bold text-brand-black mb-2 group-hover:text-brand-blue-600 transition-colors leading-snug">
-                    {title}
+                    {post.title}
                   </h3>
-                  <p className="text-slate-500 text-sm leading-relaxed mb-5 line-clamp-2">{excerpt}</p>
+                  <p className="text-slate-500 text-sm leading-relaxed mb-5 line-clamp-2">{post.excerpt}</p>
                   <Link
-                    href="/blog"
+                    href={`/blog/${post.slug}`}
                     className="inline-flex items-center gap-1.5 text-brand-blue-500 text-sm font-semibold hover:gap-2.5 transition-all duration-200"
                   >
                     Lire la suite <ArrowRight size={14} />
@@ -1013,6 +1036,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+      )}
 
       {/* ══════════════════════════════════════════════════
           9. CTA FINAL — brand black bg
@@ -1088,4 +1112,4 @@ export default function HomePage() {
 
     </div>
   );
-}
+}

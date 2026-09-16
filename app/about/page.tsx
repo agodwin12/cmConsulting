@@ -135,32 +135,32 @@ const teamMembers = [
 
 const milestones = [
   {
-    year: "2012",
+    year: "2018",
     title: "Création de CM Consulting",
     desc:  "Fondée à Douala avec une équipe de 3 personnes et une vision claire : accompagner les entreprises camerounaises vers l'excellence.",
   },
   {
-    year: "2015",
+    year: "2019",
     title: "Lancement de CM Tech",
     desc:  "Ouverture de notre centre de dépannage informatique pour répondre aux besoins croissants du marché en maintenance et réparation.",
   },
   {
-    year: "2017",
+    year: "2021",
     title: "Naissance de CM Graphic",
     desc:  "Création de notre studio de design pour offrir des solutions de communication visuelle complètes à nos clients.",
   },
   {
-    year: "2019",
+    year: "2022",
     title: "Ouverture de CM Shop",
     desc:  "Lancement de notre boutique de vente enligne pour compléter notre offre et servir les particuliers et les entreprises.",
   },
   {
-    year: "2022",
-    title: "Division Développement Logiciel",
+    year: "2024",
+    title: "Département Développement Logiciel",
     desc:  "Création de notre équipe de développeurs pour accompagner la transformation digitale de nos clients avec des solutions sur mesure.",
   },
   {
-    year: "2024",
+    year: "2026",
     title: "200+ Projets & Expansion",
     desc:  "CM Consulting franchit le cap des 200 projets réalisés et étend son rayonnement à travers toute l'Afrique Centrale.",
   },
@@ -202,7 +202,7 @@ export default function AboutPage() {
             <span className="text-brand-blue-500">Côtés</span>
           </h1>
           <p className="text-white/55 text-lg max-w-2xl leading-relaxed mb-10">
-            CM Group est né d'une conviction simple : chaque entreprise mérite un accompagnement professionnel de qualité, ancré dans la réalité locale.
+            CM est né d'une conviction simple : chaque entreprise mérite un accompagnement professionnel de qualité, ancré dans la réalité locale.
           </p>
 
           {/* Quick stats — responsive wrap */}
@@ -210,7 +210,7 @@ export default function AboutPage() {
             {[
               { value: "2012", label: "Année de fondation" },
               { value: "200+", label: "Projets réalisés" },
-              { value: "4",    label: "Divisions spécialisées" },
+              { value: "4",    label: "Départements spécialisés" },
               { value: "50+",  label: "Experts dans l'équipe" },
             ].map(({ value, label }) => (
               <div key={label}>
@@ -237,17 +237,17 @@ export default function AboutPage() {
               </span>
             </div>
             <h2 className="font-display text-4xl lg:text-5xl font-bold text-brand-black leading-tight mb-6">
-              Un Group 100%{" "}
+              CM, 100%{" "}
               <span className="text-brand-blue-500">Camerounais</span>
             </h2>
             <p className="text-slate-500 leading-relaxed mb-5">
-              CM Group est un Group d'entreprises spécialisées, fondé et dirigé par des Camerounais, pour les entreprises camerounaises et africaines. Depuis Douala, nous rayonnons sur tout le territoire national et au-delà.
+              CM est une entreprise spécialisée, fondée et dirigée par des Camerounais, pour les entreprises camerounaises et africaines. Depuis Douala, nous rayonnons sur tout le territoire national et au-delà.
             </p>
             <p className="text-slate-500 leading-relaxed mb-5">
               Nous avons construit notre réputation sur une promesse simple : des résultats concrets, une communication honnête, et un suivi rigoureux. Pas de grands discours — des actes.
             </p>
             <p className="text-slate-500 leading-relaxed mb-8">
-              Aujourd'hui, notre Group couvre 4 domaines d'expertise complémentaires — du conseil stratégique au développement logiciel, en passant par le design, le dépannage informatique et la vente de matériel.
+              Aujourd'hui, CM couvre 4 domaines d'expertise complémentaires — du conseil stratégique au développement logiciel, en passant par le design, le dépannage informatique et la vente de matériel.
             </p>
 
             <ul className="space-y-3 mb-6">
@@ -294,7 +294,7 @@ export default function AboutPage() {
   <div className="relative h-40 sm:h-48 rounded-2xl overflow-hidden shadow-card">
     <Image
       src="/workers/new4.jpg"
-      alt="Équipe CM Group"
+      alt="Équipe CM"
       fill
       className="object-cover"
     />
@@ -355,7 +355,7 @@ export default function AboutPage() {
                   Le Partenaire de Référence
                 </h3>
                 <p className="text-slate-500 leading-relaxed text-sm">
-                  Devenir le Group de services le plus fiable et le plus complet d'Afrique — reconnu pour l'intégrité de nos équipes, la qualité de nos livrables, et l'impact positif que nous créons dans chaque entreprise accompagnée.
+                  Faire de CM le service le plus fiable et le plus complet d'Afrique — reconnu pour l'intégrité de nos équipes, la qualité de nos livrables, et l'impact positif que nous créons dans chaque entreprise accompagnée.
                 </p>
               </div>
             </div>
@@ -364,7 +364,7 @@ export default function AboutPage() {
       </section>
 
       {/* ══════════════════════════════════════════════════
-          4. NOS DIVISIONS — 4 cards, 2-col on mobile
+          4. NOS DÉPARTEMENTS — 4 cards, 2-col on mobile
       ══════════════════════════════════════════════════ */}
       <section className="bg-white py-20 lg:py-28">
         <div className="w-full px-6 lg:px-16 xl:px-24">
@@ -372,15 +372,15 @@ export default function AboutPage() {
             <div className="flex items-center justify-center gap-3 mb-4">
               <span className="h-px w-10 bg-brand-blue-500" />
               <span className="text-brand-blue-500 text-xs font-semibold uppercase tracking-widest">
-                Notre Group
+                CM
               </span>
               <span className="h-px w-10 bg-brand-blue-500" />
             </div>
             <h2 className="font-display text-4xl lg:text-5xl font-bold text-brand-black mb-4">
-              Nos 4 Divisions
+              Nos Départements
             </h2>
             <p className="text-slate-500 max-w-xl mx-auto text-sm leading-relaxed">
-              Chaque division est spécialisée dans son domaine, avec des experts dédiés. Ensemble, elles forment un Group complet capable de couvrir tous vos besoins.
+              Chaque département est spécialisé dans son domaine, avec des experts dédiés. Ensemble, ils forment CM, une équipe complète capable de couvrir tous vos besoins.
             </p>
           </div>
 
@@ -527,7 +527,7 @@ export default function AboutPage() {
             <div className="flex items-center justify-center gap-3 mb-4">
               <span className="h-px w-10 bg-brand-blue-500" />
               <span className="text-brand-blue-500 text-xs font-semibold uppercase tracking-widest">
-                Les Personnes Derrière CM Group
+                Les Personnes Derrière CM
               </span>
               <span className="h-px w-10 bg-brand-blue-500" />
             </div>
@@ -576,7 +576,7 @@ export default function AboutPage() {
             <span className="text-brand-blue-500">Parlons-en.</span>
           </h2>
           <p className="text-white/50 text-base leading-relaxed max-w-xl mx-auto mb-10">
-            Que vous soyez une startup, une PME ou une grande entreprise, nous avons la division et l'expertise qu'il vous faut. Consultation initiale gratuite.
+            Que vous soyez une startup, une PME ou une grande entreprise, nous avons le département et l'expertise qu'il vous faut. Consultation initiale gratuite.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link
@@ -601,4 +601,4 @@ export default function AboutPage() {
 
     </>
   );
-}
+}
