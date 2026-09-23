@@ -3,6 +3,9 @@ import { NextResponse } from "next/server";
 export interface ShopBannerImage {
   id: string;
   imageUrl: string;
+  productTitle: string;
+  productPrice: number;
+  productDescription: string;
 }
 
 /**
