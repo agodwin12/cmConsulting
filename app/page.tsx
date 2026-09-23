@@ -353,12 +353,12 @@ export default function HomePage() {
               src={slide.image}
               alt={slide.brand}
               fill
-              className="object-cover opacity-200"
+              className="object-cover"
               priority
             />
-            {/* Black gradi— always consistent regardless of slide */}
-            <div className="absolute inset-0 bg-gradient-to-r from-brand-black/85 via-brand-black/35 to-transparent" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent" />
+            {/* Dark overlay — strong enough to keep any background photo (including busy ones like screens/text) from competing with the headline */}
+            <div className="absolute inset-0 bg-gradient-to-r from-brand-black/95 via-brand-black/75 to-brand-black/35" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent" />
           </motion.div>
         </AnimatePresence>
 
