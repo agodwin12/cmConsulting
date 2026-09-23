@@ -13,7 +13,7 @@ interface ShopBannerImage {
   productDescription: string;
 }
 
-const DURATION = 5000;
+const DURATION = 5500;
 
 function buildBuyNowUrl(banner: ShopBannerImage): string {
   const msg =
@@ -26,11 +26,17 @@ function buildBuyNowUrl(banner: ShopBannerImage): string {
 }
 
 /**
- * Promotional image carousel for the top of the Boutique page. Which images
- * appear here — and which product each one links to — is entirely decided
- * by the admin in the backoffice (Carrousel Boutique section). Renders
- * nothing while there are no banners, same "stay quiet rather than show
- * empty UI" rule used elsewhere on this site.
+ * Split hero-style carousel for the top of the Boutique page — text and
+ * photo side by side, both fading in together as the slide changes, photo
+ * bleeding edge-to-edge on its side with a wave transition into the next
+ * section. Structure borrowed from the Be Real Humanitarian site's hero
+ * (flex split ~48/52, photo absolutely positioned and cross-fading behind
+ * the text column) and adapted to CM's dark/yellow shop branding.
+ *
+ * Which images appear — and which product each one sells — is entirely
+ * decided by the admin in the backoffice. Renders nothing while there are
+ * no banners, same "stay quiet rather than show empty UI" rule used
+ * elsewhere on this site.
  */
 export default function ShopBannerCarousel() {
   const [banners, setBanners] = useState<ShopBannerImage[]>([]);
@@ -55,6 +61,7 @@ export default function ShopBannerCarousel() {
   const total = banners.length;
   const next = useCallback(() => setCurrent((c) => (c + 1) % total), [total]);
   const prev = useCallback(() => setCurrent((c) => (c - 1 + total) % total), [total]);
+  const goTo = useCallback((i: number) => setCurrent(i), []);
 
   useEffect(() => {
     if (paused || total <= 1) return;
@@ -66,91 +73,107 @@ export default function ShopBannerCarousel() {
   const banner = banners[current];
 
   return (
-    <section className="bg-brand-black py-6 lg:py-8">
-      <div className="w-full px-6 lg:px-16 xl:px-24">
-        <div
-          className="relative w-full h-64 sm:h-80 lg:h-[26rem] rounded-2xl overflow-hidden"
-          onMouseEnter={() => setPaused(true)}
-          onMouseLeave={() => setPaused(false)}
-        >
-          <AnimatePresence mode="sync">
-            <motion.div
-              key={banner.id}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-              className="absolute inset-0"
-            >
-              {/* Cross-origin image served by the separate backoffice app —
-                  next/image would need remotePatterns for its host, which
-                  would break the moment that host changes; a plain <img>
-                  avoids that coupling entirely. */}
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={banner.imageUrl}
-                alt={banner.productTitle}
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
-            </motion.div>
-          </AnimatePresence>
+    <section
+      className="relative bg-brand-black overflow-hidden"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+    >
+      {/* Photo — absolutely positioned, bleeds to the right edge, stacked
+          slides cross-fade via opacity so the transition never shows a gap */}
+      <div className="absolute inset-y-0 right-0 left-[46%] sm:left-1/2 overflow-hidden">
+        {banners.map((b, i) => (
+          <img
+            key={b.id}
+            src={b.imageUrl}
+            alt={b.productTitle}
+            className="absolute inset-0 w-full h-full object-cover transition-opacity duration-[1400ms] ease-out"
+            style={{ opacity: i === current ? 1 : 0 }}
+          />
+        ))}
+        {/* Soft fade where the photo meets the text column */}
+        <div className="absolute inset-y-0 left-0 w-24 sm:w-32 bg-gradient-to-r from-brand-black to-transparent" />
+      </div>
 
-          {/* Product + Buy Now — one clean row, bottom of the slide */}
-          <div className="absolute inset-x-0 bottom-0 z-10 p-5 sm:p-7 lg:p-9 flex flex-wrap items-end justify-between gap-4">
-            <div className="min-w-0">
-              <h3 className="font-display text-white text-xl sm:text-2xl lg:text-3xl font-bold leading-snug line-clamp-1">
-                {banner.productTitle}
-              </h3>
-              <p className="text-yellow-400 font-semibold text-base sm:text-lg mt-1">
-                {banner.productPrice.toLocaleString("fr-FR")} FCFA
-              </p>
-            </div>
-            <a
-              href={buildBuyNowUrl(banner)}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#1ebe59] text-white font-semibold px-5 py-3 rounded-xl text-sm transition-all duration-200 hover:-translate-y-0.5 shrink-0"
-            >
-              <MessageCircle size={16} />
-              Commander Maintenant
-            </a>
-          </div>
-
-          {total > 1 && (
-            <>
-              <button
-                onClick={prev}
-                aria-label="Précédent"
-                className="absolute left-3 top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-full bg-black/40 hover:bg-black/60 border border-white/15 flex items-center justify-center text-white transition-all"
+      <div className="relative z-10 w-full px-6 lg:px-16 xl:px-24 py-16 sm:py-20 lg:py-24">
+        <div className="flex items-center min-h-[22rem] sm:min-h-[26rem]">
+          {/* Text — left column, fades + shifts up on every slide change */}
+          <div className="w-full sm:w-[46%] lg:w-[42%]">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={banner.id}
+                initial={{ opacity: 0, y: 18 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -12 }}
+                transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
               >
-                <ChevronLeft size={16} />
-              </button>
-              <button
-                onClick={next}
-                aria-label="Suivant"
-                className="absolute right-3 top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-full bg-black/40 hover:bg-black/60 border border-white/15 flex items-center justify-center text-white transition-all"
-              >
-                <ChevronRight size={16} />
-              </button>
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="h-px w-10 bg-yellow-400" />
+                  <span className="text-yellow-400 text-xs font-semibold uppercase tracking-widest">
+                    CM Shop 237
+                  </span>
+                </div>
+                <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl text-white font-bold leading-tight mb-3">
+                  {banner.productTitle}
+                </h2>
+                <p className="text-white/55 text-sm sm:text-base leading-relaxed mb-5 line-clamp-2">
+                  {banner.productDescription}
+                </p>
+                <p className="text-yellow-400 font-display text-2xl sm:text-3xl font-bold mb-7">
+                  {banner.productPrice.toLocaleString("fr-FR")} FCFA
+                </p>
+                <a
+                  href={buildBuyNowUrl(banner)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#1ebe59] text-white font-semibold px-6 py-3.5 rounded-xl text-sm transition-all duration-200 hover:-translate-y-0.5"
+                >
+                  <MessageCircle size={17} />
+                  Commander Maintenant
+                </a>
+              </motion.div>
+            </AnimatePresence>
 
-              <div className="absolute top-4 left-0 right-0 z-10 flex items-center justify-center gap-2">
-                {banners.map((b, i) => (
-                  <button
-                    key={b.id}
-                    onClick={() => setCurrent(i)}
-                    aria-label={`Image ${i + 1}`}
-                    className="h-1.5 rounded-full transition-all duration-300"
-                    style={{
-                      width: i === current ? 24 : 8,
-                      background: i === current ? "#FBBF24" : "rgba(255,255,255,0.5)",
-                    }}
-                  />
-                ))}
+            {total > 1 && (
+              <div className="flex items-center gap-4 mt-10">
+                <button
+                  onClick={prev}
+                  aria-label="Précédent"
+                  className="w-9 h-9 rounded-full bg-white/8 hover:bg-white/15 border border-white/12 flex items-center justify-center text-white/70 hover:text-white transition-all"
+                >
+                  <ChevronLeft size={15} />
+                </button>
+                <button
+                  onClick={next}
+                  aria-label="Suivant"
+                  className="w-9 h-9 rounded-full bg-white/8 hover:bg-white/15 border border-white/12 flex items-center justify-center text-white/70 hover:text-white transition-all"
+                >
+                  <ChevronRight size={15} />
+                </button>
+                <div className="flex items-center gap-2 ml-1">
+                  {banners.map((b, i) => (
+                    <button
+                      key={b.id}
+                      onClick={() => goTo(i)}
+                      aria-label={`Produit ${i + 1}`}
+                      className="h-1.5 rounded-full transition-all duration-300"
+                      style={{
+                        width: i === current ? 22 : 7,
+                        background: i === current ? "#FBBF24" : "rgba(255,255,255,0.25)",
+                      }}
+                    />
+                  ))}
+                </div>
               </div>
-            </>
-          )}
+            )}
+          </div>
         </div>
+      </div>
+
+      {/* Wave transition into the next (brand-cream) section */}
+      <div className="absolute bottom-0 left-0 right-0 leading-none pointer-events-none">
+        <svg viewBox="0 0 1440 90" className="w-full h-14 sm:h-20" preserveAspectRatio="none">
+          <path fill="#EDECE8" d="M0,45 C240,90 480,10 720,35 C960,60 1200,90 1440,40 L1440,90 L0,90 Z" />
+        </svg>
       </div>
     </section>
   );
