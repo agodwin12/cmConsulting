@@ -113,7 +113,7 @@ const values = [
 const teamMembers = [
   {
     name:  "Christian Merlin SIMALAK",
-    role:  "Business Developper / Communicatieur Visuel",
+    role:  "Business Developper / Consultant Business",
     image: "/workers/a1.jpg",
   },
   {
@@ -123,11 +123,11 @@ const teamMembers = [
   },
   {
     name:  "Erick MINTAMACK",
-    role:  "Expert en Marketing",
+    role:  "Expert en Marketing & Communication",
     image: "/workers/a2.jpg",
   },
   {
-    name:  "Awah Wilbroad NDE",
+    name:  "Awah Wilbroad",
     role:  "Ingenieur Logiciel / Solution Cloud ",
     image: "/workers/a4.jpg",
   },
@@ -141,13 +141,13 @@ const milestones = [
   },
   {
     year: "2019",
-    title: "Lancement de CM Tech",
-    desc:  "Ouverture de notre centre de dépannage informatique pour répondre aux besoins croissants du marché en maintenance et réparation.",
+    title: "Naissance de CM Graphic",
+    desc:  "Création de notre studio de design pour offrir des solutions de communication visuelle complètes à nos clients.",
   },
   {
     year: "2021",
-    title: "Naissance de CM Graphic",
-    desc:  "Création de notre studio de design pour offrir des solutions de communication visuelle complètes à nos clients.",
+    title: "Lancement de CM Tech",
+    desc:  "Ouverture de notre centre de dépannage informatique pour répondre aux besoins croissants du marché en maintenance et réparation.",
   },
   {
     year: "2022",
@@ -202,7 +202,7 @@ export default function AboutPage() {
             <span className="text-brand-blue-500">Côtés</span>
           </h1>
           <p className="text-white/55 text-lg max-w-2xl leading-relaxed mb-10">
-            CM est né d'une conviction simple : chaque entreprise mérite un accompagnement professionnel de qualité, ancré dans la réalité locale.
+            CM est né d'une conviction simple : chaque entreprise mérite un accompagnement professionnel de qualité, ancré dans sa propre réalité.
           </p>
 
           {/* Quick stats — responsive wrap */}
@@ -241,7 +241,7 @@ export default function AboutPage() {
               <span className="text-brand-blue-500">Camerounais</span>
             </h2>
             <p className="text-slate-500 leading-relaxed mb-5">
-              CM est une entreprise spécialisée, fondée et dirigée par des Camerounais, pour les entreprises camerounaises et africaines. Depuis Douala, nous rayonnons sur tout le territoire national et au-delà.
+              CM est une entreprise spécialisée, fondée et dirigée par des Camerounais, pour toute les entreprises du monde. Depuis Douala, nous rayonnons sur tout le territoire national et au-delà.
             </p>
             <p className="text-slate-500 leading-relaxed mb-5">
               Nous avons construit notre réputation sur une promesse simple : des résultats concrets, une communication honnête, et un suivi rigoureux. Pas de grands discours — des actes.
@@ -587,7 +587,7 @@ export default function AboutPage() {
               <ArrowRight size={17} className="group-hover:translate-x-1 transition-transform" />
             </Link>
             <a
-              href="https://wa.me/237694890230"
+              href="https://wa.me/237690486009"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#1ebe59] text-white font-semibold px-8 py-4 rounded-xl transition-all duration-200 hover:-translate-y-0.5"
@@ -601,4 +601,4 @@ export default function AboutPage() {
 
     </>
   );
-}
+}

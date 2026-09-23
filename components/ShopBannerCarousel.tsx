@@ -80,7 +80,7 @@ export default function ShopBannerCarousel() {
     >
       {/* Photo — absolutely positioned, bleeds to the right edge, stacked
           slides cross-fade via opacity so the transition never shows a gap */}
-      <div className="absolute inset-y-0 right-0 left-[46%] sm:left-1/2 overflow-hidden">
+      <div className="absolute inset-y-0 right-0 left-[28%] sm:left-[32%] overflow-hidden">
         {banners.map((b, i) => (
           <img
             key={b.id}
@@ -90,11 +90,14 @@ export default function ShopBannerCarousel() {
             style={{ opacity: i === current ? 1 : 0 }}
           />
         ))}
-        {/* Soft fade where the photo meets the text column */}
-        <div className="absolute inset-y-0 left-0 w-24 sm:w-32 bg-gradient-to-r from-brand-black to-transparent" />
+        {/* Long, gradual fade where the photo dissolves into the text
+            column's background — multiple stops so it tapers smoothly
+            instead of reading as a straight edge */}
+        <div className="absolute inset-y-0 left-0 w-1/2 sm:w-[55%] bg-gradient-to-r from-brand-black via-brand-black/80 via-30% to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-black/20" />
       </div>
 
-      <div className="relative z-10 w-full px-6 lg:px-16 xl:px-24 py-16 sm:py-20 lg:py-24">
+      <div className="relative z-10 w-full px-6 lg:px-16 xl:px-24 pt-32 pb-16 sm:pt-40 sm:pb-20 lg:pt-44 lg:pb-24">
         <div className="flex items-center min-h-[22rem] sm:min-h-[26rem]">
           {/* Text — left column, fades + shifts up on every slide change */}
           <div className="w-full sm:w-[46%] lg:w-[42%]">

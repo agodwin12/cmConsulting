@@ -430,56 +430,10 @@ export default function ShopPage() {
     <>
 
       {/* ══════════════════════════════════════════════════
-          1. PAGE HEADER
-      ══════════════════════════════════════════════════ */}
-      <section className="relative bg-brand-black pt-44 pb-20 overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="https://images.unsplash.com/photo-1491933382434-500287f9b54b?w=1920&h=700&fit=crop"
-            alt="CM Shop 237 Douala"
-            fill
-            className="object-cover opacity-15"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-brand-black via-brand-black/92 to-brand-black/60" />
-          <div className="absolute inset-0 bg-gradient-to-t from-brand-black via-transparent to-transparent" />
-        </div>
-        <div className="absolute top-1/2 right-1/3 w-[400px] h-[400px] bg-yellow-500/8 blur-[100px] pointer-events-none" />
-
-        <div className="relative z-10 w-full px-6 lg:px-16 xl:px-24">
-          <div className="flex items-center gap-3 mb-5">
-            <span className="h-px w-10 bg-yellow-400" />
-            <span className="text-yellow-400 text-xs font-semibold uppercase tracking-widest">
-              CM Shop 237 · Douala, Cameroun
-            </span>
-          </div>
-          <h1 className="font-display text-5xl lg:text-6xl text-white font-bold max-w-2xl leading-tight mb-4">
-            Notre Boutique{" "}
-            <span className="text-yellow-400"></span>
-          </h1>
-          <p className="text-white/55 text-lg max-w-xl leading-relaxed mb-6">
-            Matériel informatique, téléphones, accessoires et consommables — tout pour équiper votre bureau ou votre maison. Commandez via WhatsApp en un clic.
-          </p>
-
-          {/* Info strip */}
-          <div className="flex flex-wrap gap-5 text-sm">
-            {[
-              { icon: <MessageCircle size={15} />, text: "Commande via WhatsApp" },
-              { icon: <CheckCircle2  size={15} />, text: "Livraison à Douala" },
-              { icon: <Tag          size={15} />, text: "Prix en FCFA · Négociable" },
-              { icon: <ShoppingBag  size={15} />, text: SHOP_INFO.hours },
-            ].map(({ icon, text }) => (
-              <div key={text} className="flex items-center gap-2 text-white/50">
-                <span className="text-yellow-400">{icon}</span>
-                {text}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ══════════════════════════════════════════════════
-          1.5 CARROUSEL — images set by the admin in the backoffice
+          1. CARROUSEL — now the page's hero. Images + the product each
+          one sells are set by the admin in the backoffice; this is the
+          first thing on the page, so it carries its own top clearance
+          for the sticky navbar.
       ══════════════════════════════════════════════════ */}
       <ShopBannerCarousel />
 
