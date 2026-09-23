@@ -148,34 +148,7 @@ const divisions = [
     facebook: null,
   },
 
-  /* ── 5. CM Shop ─────────────────────────────────────── */
-  {
-    id:         "shop",
-    icon:       <ShoppingBag size={28} />,
-    name:       "CM Shop — Vente de Matériel",
-    nameEn:     "CM Shop — Hardware Sales",
-    brand:      "CM Shop 237",
-    tagline:    "Du matériel de qualité, au meilleur prix à Douala.",
-    color:      "yellow",
-    borderColor:"border-yellow-500/30",
-    bgColor:    "bg-yellow-500/5",
-    iconBg:     "bg-yellow-500 text-white",
-    accentText: "text-yellow-600",
-    image:      "https://images.unsplash.com/photo-1491933382434-500287f9b54b?w=800&h=600&fit=crop",
-    imageAlt:   "Boutique informatique CM Shop Douala",
-    description:"CM Shop est notre boutique spécialisée dans la vente de matériel informatique, téléphones, accessoires et consommables. Nous sélectionnons des produits de qualité à des prix compétitifs, avec la garantie d'un service après-vente assuré par nos techniciens D-Panneur. Livraison disponible dans tout Douala et sur commande nationale.",
-    services: [
-      { icon: <Monitor size={17} />,    title: "Ordinateurs & Portables",         desc: "Vente de PC de bureau, ordinateurs portables neufs et reconditionnés de toutes marques : HP, Dell, Lenovo, Asus, Acer." },
-      { icon: <Smartphone size={17} />, title: "Téléphones & Tablettes",          desc: "Smartphones Android et iOS, tablettes et accessoires. Marques locales et internationales disponibles en stock." },
-      { icon: <Printer size={17} />,    title: "Imprimantes & Scanners",          desc: "Imprimantes jet d'encre, laser, multifonctions et scanners pour usage bureau et professionnel." },
-      { icon: <Wifi size={17} />,       title: "Réseaux & Connectivité",          desc: "Routeurs, switch, câbles réseau, clés 4G, modems et tout le matériel pour votre infrastructure réseau." },
-      { icon: <Package size={17} />,    title: "Accessoires & Consommables",      desc: "Cartouches, tonners, câbles, housses, claviers, souris, écrans, webcams et tous vos accessoires informatiques." },
-      { icon: <HardDrive size={17} />,  title: "Stockage & Sauvegarde",           desc: "Disques durs internes et externes, SSD, clés USB, cartes mémoire et solutions de sauvegarde NAS." },
-    ],
-    facebook: "https://web.facebook.com/CMShop237",
-  },
-
-  /* ── 6. Solutions Cloud ─────────────────────────────── */
+  /* ── 5. Solutions Cloud ─────────────────────────────── */
   {
     id:         "cloud",
     icon:       <Cloud size={28} />,
@@ -200,6 +173,33 @@ const divisions = [
       { icon: <Globe size={17} />,      title: "Noms de Domaine & SSL",           desc: "Enregistrement de domaines, certificats SSL, configuration DNS et gestion complète de votre présence en ligne." },
     ],
     facebook: null,
+  },
+
+  /* ── 6. CM Shop ─────────────────────────────────────── */
+  {
+    id:         "shop",
+    icon:       <ShoppingBag size={28} />,
+    name:       "CM Shop — Vente de Matériel",
+    nameEn:     "CM Shop — Hardware Sales",
+    brand:      "CM Shop 237",
+    tagline:    "Du matériel de qualité, au meilleur prix à Douala.",
+    color:      "yellow",
+    borderColor:"border-yellow-500/30",
+    bgColor:    "bg-yellow-500/5",
+    iconBg:     "bg-yellow-500 text-white",
+    accentText: "text-yellow-600",
+    image:      "https://images.unsplash.com/photo-1491933382434-500287f9b54b?w=800&h=600&fit=crop",
+    imageAlt:   "Boutique informatique CM Shop Douala",
+    description:"CM Shop est notre boutique spécialisée dans la vente de matériel informatique, téléphones, accessoires et consommables. Nous sélectionnons des produits de qualité à des prix compétitifs, avec la garantie d'un service après-vente assuré par nos techniciens D-Panneur. Livraison disponible dans tout Douala et sur commande nationale.",
+    services: [
+      { icon: <Monitor size={17} />,    title: "Ordinateurs & Portables",         desc: "Vente de PC de bureau, ordinateurs portables neufs et reconditionnés de toutes marques : HP, Dell, Lenovo, Asus, Acer." },
+      { icon: <Smartphone size={17} />, title: "Téléphones & Tablettes",          desc: "Smartphones Android et iOS, tablettes et accessoires. Marques locales et internationales disponibles en stock." },
+      { icon: <Printer size={17} />,    title: "Imprimantes & Scanners",          desc: "Imprimantes jet d'encre, laser, multifonctions et scanners pour usage bureau et professionnel." },
+      { icon: <Wifi size={17} />,       title: "Réseaux & Connectivité",          desc: "Routeurs, switch, câbles réseau, clés 4G, modems et tout le matériel pour votre infrastructure réseau." },
+      { icon: <Package size={17} />,    title: "Accessoires & Consommables",      desc: "Cartouches, tonners, câbles, housses, claviers, souris, écrans, webcams et tous vos accessoires informatiques." },
+      { icon: <HardDrive size={17} />,  title: "Stockage & Sauvegarde",           desc: "Disques durs internes et externes, SSD, clés USB, cartes mémoire et solutions de sauvegarde NAS." },
+    ],
+    facebook: "https://web.facebook.com/CMShop237",
   },
 ];
 

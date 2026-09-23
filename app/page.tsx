@@ -102,6 +102,18 @@ const slides = [
     stat:     { value: "50+", label: "Apps Déployées" },
   },
   {
+    id:       "cloud",
+    brand:    "Solutions Cloud",
+    eyebrow:  "Cloud · Sécurité · Infrastructure",
+    headline: ["Vos Données", "Sécurisées,", "Partout."],
+    accent:   1,
+    sub:      "",
+    cta:      { label: "Audit Gratuit", href: "/contact" },
+    ctaAlt:   { label: "En Savoir Plus", href: "/services#cloud" },
+    image:    "/hero/solutions-cloud.jpg",
+    stat:     { value: "99.9%", label: "Uptime Garanti" },
+  },
+  {
     id:       "shop",
     brand:    "CM Shop 237",
     eyebrow:  "Boutique en ligne.",
@@ -113,18 +125,6 @@ const slides = [
     /* Busy African tech store / electronics display */
     image:    "https://images.unsplash.com/photo-1491933382434-500287f9b54b?w=1920&h=1080&fit=crop",
     stat:     { value: "500+", label: "Produits en Stock" },
-  },
-  {
-    id:       "cloud",
-    brand:    "Solutions Cloud",
-    eyebrow:  "Cloud · Sécurité · Infrastructure",
-    headline: ["Vos Données", "Sécurisées,", "Partout."],
-    accent:   1,
-    sub:      "",
-    cta:      { label: "Audit Gratuit", href: "/contact" },
-    ctaAlt:   { label: "En Savoir Plus", href: "/services#cloud" },
-    image:    "/hero/solutions-cloud.jpg",
-    stat:     { value: "99.9%", label: "Uptime Garanti" },
   },
 ];
 
@@ -171,15 +171,6 @@ const services = [
     href:        "/services#dev",
   },
   {
-    icon:        <ShoppingBag size={26} />,
-    iconColor:   "text-brand-blue-400",
-    hoverBg:     "group-hover:bg-brand-blue-500",
-    title:       "Boutique en ligne",
-    titleEn:     "CM Shop",
-    description: "Boutique spécialisée en matériel électronique.",
-    href:        "/shop",
-  },
-  {
     icon:        <Cloud size={26} />,
     iconColor:   "text-brand-blue-400",
     hoverBg:     "group-hover:bg-brand-blue-500",
@@ -187,6 +178,15 @@ const services = [
     titleEn:     "Cloud Solutions",
     description: "Hébergement web, migration cloud, sauvegarde de données et cybersécurité pour protéger votre entreprise.",
     href:        "/services#cloud",
+  },
+  {
+    icon:        <ShoppingBag size={26} />,
+    iconColor:   "text-brand-blue-400",
+    hoverBg:     "group-hover:bg-brand-blue-500",
+    title:       "Boutique en ligne",
+    titleEn:     "CM Shop",
+    description: "Boutique spécialisée en matériel électronique.",
+    href:        "/shop",
   },
 ];
 
@@ -266,15 +266,15 @@ const divisions = [
     color: "bg-brand-blue-500/10 border-brand-blue-500/20 text-brand-blue-400",
   },
   {
-    name:  "CM Shop",
-    desc:  "Boutique enligne",
-    icon:  <ShoppingBag size={20} />,
-    color: "bg-brand-blue-500/10 border-brand-blue-500/20 text-brand-blue-400",
-  },
-  {
     name:  "CM Graphic",
     desc:  "communication visuel et print",
     icon:  <Palette     size={20} />,
+    color: "bg-brand-blue-500/10 border-brand-blue-500/20 text-brand-blue-400",
+  },
+  {
+    name:  "CM Shop",
+    desc:  "Boutique enligne",
+    icon:  <ShoppingBag size={20} />,
     color: "bg-brand-blue-500/10 border-brand-blue-500/20 text-brand-blue-400",
   },
 ];
@@ -619,7 +619,8 @@ export default function HomePage() {
         <div className="w-full px-6 lg:px-16 xl:px-24">
           <motion.div {...fadeUp(0)} className="text-center mb-8">
             <p className="text-white/30 text-xs uppercase tracking-widest font-semibold">
-              CM · Nos Départements
+              NOS DOMAINES DE COMPÉTENCE
+
             </p>
           </motion.div>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
@@ -1110,4 +1111,4 @@ export default function HomePage() {
 
     </div>
   );
-}
+}

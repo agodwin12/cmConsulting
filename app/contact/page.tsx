@@ -75,18 +75,18 @@ const facebookPages = [
     dot: "#f97316",
   },
   {
-    icon: <ShoppingBag size={15} />,
-    name: "CM Shop 237",
-    desc: "Vente de matériel",
-    href: "https://web.facebook.com/CMShop237",
-    dot: "#eab308",
-  },
-  {
     icon: <Palette size={15} />,
     name: "CM Graphic",
     desc: "Création graphique",
     href: "https://web.facebook.com/CMGraphicOfficiel",
     dot: "#ec4899",
+  },
+  {
+    icon: <ShoppingBag size={15} />,
+    name: "CM Shop 237",
+    desc: "Vente de matériel",
+    href: "https://web.facebook.com/CMShop237",
+    dot: "#eab308",
   },
 ];
 
@@ -95,8 +95,8 @@ const subjects = [
   "Dépannage informatique (D-Panneur)",
   "Création graphique (CM Graphic)",
   "Développement de site web / application",
-  "Achat de matériel (CM Shop)",
   "Solutions Cloud & Hébergement",
+  "Achat de matériel (CM Shop)",
   "Autre demande",
 ];
 

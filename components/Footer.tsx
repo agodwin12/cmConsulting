@@ -47,16 +47,16 @@ const footerServices = [
     color: "text-green-400",
   },
   {
-    icon:  <ShoppingBag size={15} />,
-    name:  "Boutique en Ligne",
-    href:  "/shop",
-    color: "text-yellow-400",
-  },
-  {
     icon:  <Cloud size={15} />,
     name:  "Solutions Cloud",
     href:  "/services#cloud",
     color: "text-purple-400",
+  },
+  {
+    icon:  <ShoppingBag size={15} />,
+    name:  "Boutique en Ligne",
+    href:  "/shop",
+    color: "text-yellow-400",
   },
 ];
 
@@ -250,8 +250,8 @@ export default function Footer() {
               {[
                 { name: "CM Consulting",  href: "https://web.facebook.com/CMConsultingSarl" },
                 { name: "D-Panneur",      href: "https://web.facebook.com/dpanneur" },
-                { name: "CM Shop 237",    href: "https://web.facebook.com/CMShop237" },
                 { name: "CM Graphic",     href: "https://web.facebook.com/CMGraphicOfficiel" },
+                { name: "CM Shop 237",    href: "https://web.facebook.com/CMShop237" },
               ].map(({ name, href }) => (
                 <li key={name}>
                   <a
