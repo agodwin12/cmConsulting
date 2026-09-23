@@ -25,6 +25,7 @@ import {
   type Product,
   type ProductCategory,
 } from "../data/products";
+import ShopBannerCarousel from "@/components/ShopBannerCarousel";
 /* ─────────────────────────────────────────────────────────
    HELPERS
 ───────────────────────────────────────────────────────── */
@@ -476,6 +477,11 @@ export default function ShopPage() {
           </div>
         </div>
       </section>
+
+      {/* ══════════════════════════════════════════════════
+          1.5 CARROUSEL — images set by the admin in the backoffice
+      ══════════════════════════════════════════════════ */}
+      <ShopBannerCarousel />
 
       {/* Sections 2 & 3 (search/filters + curated grid) only make sense once
           there's a curated catalog to search and filter — with `products`
