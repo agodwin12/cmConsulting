@@ -87,7 +87,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
         </div>
       </section>
 
-      <article className="bg-white py-16">
+      <article className="bg-brand-cream py-16">
         <div className="max-w-3xl mx-auto px-6 lg:px-8">
           <div className="space-y-5 text-slate-600 text-base leading-relaxed">
             {paragraphs.map((paragraph, i) => (

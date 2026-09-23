@@ -76,7 +76,7 @@ export default async function BlogPage() {
         </div>
       </section>
 
-      <section className="bg-white py-section">
+      <section className="bg-brand-cream py-section">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           {!featured ? (
             <div className="flex flex-col items-center justify-center py-24 text-center">

@@ -12,6 +12,7 @@ module.exports = {
           darkgray: "#1A1A1A",
           gray:     "#2C2C2C",
           light:    "#F5F5F5",
+          cream:    "#EDECE8",
           blue: {
             50:  "#e8f6ff",
             100: "#bae6ff",
@@ -49,4 +50,4 @@ module.exports = {
     },
   },
   plugins: [],
-};
+};

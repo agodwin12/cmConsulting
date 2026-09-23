@@ -225,7 +225,7 @@ export default function AboutPage() {
       {/* ══════════════════════════════════════════════════
           2. QUI SOMMES-NOUS
       ══════════════════════════════════════════════════ */}
-      <section className="bg-white py-20 lg:py-28">
+      <section className="bg-brand-cream py-20 lg:py-28">
         <div className="w-full px-6 lg:px-16 xl:px-24 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
           {/* Left: text */}
@@ -366,7 +366,7 @@ export default function AboutPage() {
       {/* ══════════════════════════════════════════════════
           4. NOS DÉPARTEMENTS — 4 cards, 2-col on mobile
       ══════════════════════════════════════════════════ */}
-      <section className="bg-white py-20 lg:py-28">
+      <section className="bg-brand-cream py-20 lg:py-28">
         <div className="w-full px-6 lg:px-16 xl:px-24">
           <div className="text-center mb-14">
             <div className="flex items-center justify-center gap-3 mb-4">
@@ -484,7 +484,7 @@ export default function AboutPage() {
       {/* ══════════════════════════════════════════════════
           6. NOS VALEURS
       ══════════════════════════════════════════════════ */}
-      <section className="bg-white py-20 lg:py-28">
+      <section className="bg-brand-cream py-20 lg:py-28">
         <div className="w-full px-6 lg:px-16 xl:px-24">
           <div className="text-center mb-14">
             <div className="flex items-center justify-center gap-3 mb-4">

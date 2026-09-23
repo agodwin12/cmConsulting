@@ -339,7 +339,7 @@ export default function ContactPage() {
       {/* ══════════════════════════════════════════════════
           3. MAIN CONTENT — FORM + SIDEBAR
       ══════════════════════════════════════════════════ */}
-      <section className="bg-white py-16 lg:py-24">
+      <section className="bg-brand-cream py-16 lg:py-24">
         <div className="w-full px-6 lg:px-16 xl:px-24">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-16">
 
@@ -766,4 +766,4 @@ export default function ContactPage() {
       </a>
     </>
   );
-}
+}

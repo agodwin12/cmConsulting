@@ -897,7 +897,7 @@ export default function ProjetsPage() {
       {/* ══════════════════════════════════════════════════
           PROJECT GRID
       ══════════════════════════════════════════════════ */}
-      <section className="bg-white py-14">
+      <section className="bg-brand-cream py-14">
         <div className="w-full px-6 lg:px-16 xl:px-24">
           <AnimatePresence mode="wait">
             {filtered.length === 0 ? (
@@ -1143,4 +1143,4 @@ export default function ProjetsPage() {
       </AnimatePresence>
     </div>
   );
-}
+}

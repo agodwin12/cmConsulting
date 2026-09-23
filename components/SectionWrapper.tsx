@@ -13,7 +13,7 @@ interface SectionWrapperProps {
 }
 
 const bgMap: Record<Variant, string> = {
-  white: "bg-white",
+  white: "bg-brand-cream",
   light: "bg-gradient-to-b from-slate-50 to-blue-50/20",
   dark:  "bg-brand-black",
 };
@@ -33,4 +33,4 @@ export default function SectionWrapper({ children, variant = "white", className 
       </div>
     </motion.section>
   );
-}
+}

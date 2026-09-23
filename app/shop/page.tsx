@@ -340,7 +340,7 @@ function SellerListingsSection() {
     activeCategory === "Tous" ? listings : listings.filter((l) => l.category === activeCategory);
 
   return (
-    <section className="bg-white py-16 border-t border-slate-100">
+    <section className="bg-brand-cream py-16 border-t border-slate-100">
       <div className="w-full px-6 lg:px-16 xl:px-24">
         <div className="flex items-center gap-3 mb-3">
           <span className="h-px w-10 bg-yellow-400" />
@@ -712,7 +712,7 @@ export default function ShopPage() {
       {/* ══════════════════════════════════════════════════
           4. HOW TO ORDER
       ══════════════════════════════════════════════════ */}
-      <section className="bg-white py-20">
+      <section className="bg-brand-cream py-20">
         <div className="w-full px-6 lg:px-16 xl:px-24">
           <div className="text-center mb-12">
             <div className="flex items-center justify-center gap-3 mb-4">

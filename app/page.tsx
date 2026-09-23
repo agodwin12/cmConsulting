@@ -59,8 +59,7 @@ const slides = [
     sub:      "",
     cta:      { label: "Démarrer un Projet", href: "/contact" },
     ctaAlt:   { label: "Nos Services",       href: "/services#conseil" },
-    /* Black businesswoman leading a meeting */
-    image:    "https://images.unsplash.com/photo-1573497491765-dccce02b29df?w=1920&h=1080&fit=crop",
+    image:    "/hero/conseil-strategie.jpg",
     stat:     { value: "200+", label: "Projets Réalisés" },
   },
   {
@@ -124,8 +123,7 @@ const slides = [
     sub:      "",
     cta:      { label: "Audit Gratuit", href: "/contact" },
     ctaAlt:   { label: "En Savoir Plus", href: "/services#cloud" },
-    /* Server room / data center blue light */
-    image:    "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1920&h=1080&fit=crop",
+    image:    "/hero/solutions-cloud.jpg",
     stat:     { value: "99.9%", label: "Uptime Garanti" },
   },
 ];
@@ -653,7 +651,7 @@ export default function HomePage() {
       {/* ══════════════════════════════════════════════════
           3. SERVICES — white bg, black cards hover to black
       ══════════════════════════════════════════════════ */}
-      <section className="bg-white py-28">
+      <section className="bg-brand-cream py-28">
         <div className="w-full px-6 lg:px-16 xl:px-24">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-end mb-16">
             <div>
@@ -868,7 +866,7 @@ export default function HomePage() {
       {/* ══════════════════════════════════════════════════
           6. PROCESS — white bg
       ══════════════════════════════════════════════════ */}
-      <section className="bg-white py-28">
+      <section className="bg-brand-cream py-28">
         <div className="w-full px-6 lg:px-16 xl:px-24">
           <div className="text-center mb-16">
             <motion.div {...fadeUp(0)} className="flex items-center justify-center gap-3 mb-4">
@@ -965,7 +963,7 @@ export default function HomePage() {
           rule as the Boutique's vendor-listings section).
       ══════════════════════════════════════════════════ */}
       {blogPosts.length > 0 && (
-      <section className="bg-white py-28">
+      <section className="bg-brand-cream py-28">
         <div className="w-full px-6 lg:px-16 xl:px-24">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
             <div>

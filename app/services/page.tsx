@@ -272,7 +272,7 @@ export default function ServicesPage() {
       {/* ══════════════════════════════════════════════════
           2. SERVICES OVERVIEW CARDS
       ══════════════════════════════════════════════════ */}
-      <section className="bg-white py-20">
+      <section className="bg-brand-cream py-20">
         <div className="w-full px-6 lg:px-16 xl:px-24">
           <div className="grid grid-cols-2 lg:grid-cols-3 gap-5">
             {divisions.map(({ id, icon, name, tagline, iconBg, borderColor, bgColor, accentText }) => (
@@ -303,7 +303,7 @@ export default function ServicesPage() {
         <section
           key={id}
           id={id}
-          className={`py-28 ${divIdx % 2 === 0 ? "bg-white" : "bg-gradient-to-b from-slate-50 to-blue-50/10"}`}
+          className={`py-28 ${divIdx % 2 === 0 ? "bg-brand-cream" : "bg-gradient-to-b from-slate-50 to-blue-50/10"}`}
         >
           <div className="w-full px-6 lg:px-16 xl:px-24">
 
@@ -467,7 +467,7 @@ export default function ServicesPage() {
       {/* ══════════════════════════════════════════════════
           5. CTA FINAL
       ══════════════════════════════════════════════════ */}
-      <section className="relative bg-white py-24 overflow-hidden">
+      <section className="relative bg-brand-cream py-24 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-blue-50/30 to-white" />
         <div className="relative z-10 w-full px-6 lg:px-16 xl:px-24 text-center">
           <div className="inline-flex items-center gap-2 bg-brand-blue-500/10 border border-brand-blue-500/30 rounded-full px-4 py-2 mb-6">
