@@ -208,7 +208,7 @@ export default function AboutPage() {
           {/* Quick stats — responsive wrap */}
           <div className="flex flex-wrap gap-6 sm:gap-10">
             {[
-              { value: "2012", label: "Année de fondation" },
+              { value: "2018", label: "Année de fondation" },
               { value: "200+", label: "Projets réalisés" },
               { value: "4",    label: "Départements spécialisés" },
               { value: "50+",  label: "Experts dans l'équipe" },

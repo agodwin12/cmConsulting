@@ -133,7 +133,7 @@ export default function Footer() {
               <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
             </Link>
             <a
-              href="https://wa.me/237694890230"
+              href="https://wa.me/237690486009"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#1ebe59] text-white font-semibold px-6 py-3 rounded-xl text-sm transition-all duration-200 hover:-translate-y-0.5"
@@ -296,17 +296,10 @@ export default function Footer() {
                 <div>
                   <p className="text-xs text-white/30 uppercase tracking-wider mb-0.5">Téléphone</p>
                   <a
-                    href="tel:+237694890230"
+                    href="tel:+237690486009"
                     className="text-sm text-white/65 hover:text-brand-blue-400 transition-colors"
                   >
-                    +237 694 890 230
-                  </a>
-                  <br />
-                  <a
-                    href="tel:+237 694 890 230"
-                    className="text-sm text-white/65 hover:text-brand-blue-400 transition-colors"
-                  >
-                    +237 694 890 230
+                    +237 690 486 009
                   </a>
                 </div>
               </li>
@@ -343,7 +336,7 @@ export default function Footer() {
 
             {/* WhatsApp quick contact */}
             <a
-              href="https://wa.me/237694890230"
+              href="https://wa.me/237690486009"
               target="_blank"
               rel="noopener noreferrer"
               className="mt-6 flex items-center gap-2.5 bg-[#25D366]/10 border border-[#25D366]/20 hover:border-[#25D366]/50 text-[#25D366] hover:bg-[#25D366]/15 px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200 group"
@@ -392,4 +385,4 @@ export default function Footer() {
 
     </footer>
   );
-}
+}

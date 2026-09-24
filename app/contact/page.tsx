@@ -281,7 +281,7 @@ export default function ContactPage() {
           {/* Quick action pills */}
           <div className="flex flex-wrap gap-3 animate-fsu delay-300">
             <a
-              href="https://wa.me/237694890230"
+              href="https://wa.me/237690486009"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#1ebe59] text-white font-semibold px-5 py-2.5 rounded-full text-sm transition-all duration-200 hover:-translate-y-0.5 shadow-lg shadow-green-500/20"
@@ -379,7 +379,7 @@ export default function ContactPage() {
                   </p>
                   <div className="flex flex-wrap justify-center gap-3">
                     <a
-                      href="https://wa.me/237694890230"
+                      href="https://wa.me/237690486009"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-2 bg-[#25D366] text-white font-semibold px-5 py-3 rounded-xl text-sm hover:bg-[#1ebe59] transition-colors"
@@ -555,7 +555,7 @@ export default function ContactPage() {
                     Vous êtes pressé ? Écrivez-nous directement sur WhatsApp. Nous répondons rapidement, même le week-end.
                   </p>
                   <a
-                    href="https://wa.me/237694890230?text=Bonjour%20CM%20Consulting%2C%20j%27ai%20une%20question%20concernant..."
+                    href="https://wa.me/237690486009?text=Bonjour%20CM%20Consulting%2C%20j%27ai%20une%20question%20concernant..."
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center justify-between bg-[#25D366] hover:bg-[#1ebe59] text-white font-bold px-5 py-3.5 rounded-xl text-sm transition-all duration-200 hover:-translate-y-0.5 shadow-lg shadow-green-500/20 group"
@@ -726,7 +726,7 @@ export default function ContactPage() {
 
           <div className="flex flex-wrap justify-center gap-4">
             <a
-              href="https://wa.me/237694890230"
+              href="https://wa.me/237690486009"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#1ebe59] text-white font-bold px-7 py-4 rounded-xl transition-all duration-200 hover:-translate-y-0.5 shadow-lg shadow-green-500/20 text-sm"
@@ -756,7 +756,7 @@ export default function ContactPage() {
           FLOATING WHATSAPP BUTTON
       ══════════════════════════════════════════════════ */}
       <a
-        href="https://wa.me/237694890230"
+        href="https://wa.me/237690486009"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Nous contacter sur WhatsApp"
@@ -766,4 +766,4 @@ export default function ContactPage() {
       </a>
     </>
   );
-}
+}

@@ -294,22 +294,6 @@ export default function Navbar() {
             </AnimatePresence>
           </li>
 
-          {/* Boutique — highlighted pill that draws the eye */}
-          <li>
-            <Link
-              href="/shop"
-              className={`relative inline-flex items-center gap-2 rounded-full bg-yellow-400 px-4 py-1.5 text-sm font-bold text-black shadow-[0_0_18px_rgba(250,204,21,0.35)] transition-all duration-200 hover:bg-yellow-300 hover:shadow-[0_0_26px_rgba(250,204,21,0.55)] hover:-translate-y-0.5
-                ${pathname === "/shop" ? "ring-2 ring-yellow-300/70 ring-offset-2 ring-offset-black" : ""}`}
-            >
-              <ShoppingBag size={15} />
-              {lang === "fr" ? "Boutique" : "Shop"}
-              <span aria-hidden className="absolute -right-1 -top-1 flex h-2.5 w-2.5">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-yellow-400 opacity-75" />
-                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-yellow-300" />
-              </span>
-            </Link>
-          </li>
-
           {/* Projets */}
           <li>
             <Link
@@ -359,6 +343,22 @@ export default function Navbar() {
                   className="absolute -bottom-1 left-0 right-0 h-0.5 bg-blue-500 rounded-full"
                 />
               )}
+            </Link>
+          </li>
+
+          {/* Boutique — highlighted pill that draws the eye, now last */}
+          <li>
+            <Link
+              href="/shop"
+              className={`relative inline-flex items-center gap-2 rounded-full bg-yellow-400 px-4 py-1.5 text-sm font-bold text-black shadow-[0_0_18px_rgba(250,204,21,0.35)] transition-all duration-200 hover:bg-yellow-300 hover:shadow-[0_0_26px_rgba(250,204,21,0.55)] hover:-translate-y-0.5
+                ${pathname === "/shop" ? "ring-2 ring-yellow-300/70 ring-offset-2 ring-offset-black" : ""}`}
+            >
+              <ShoppingBag size={15} />
+              {lang === "fr" ? "Boutique" : "Shop"}
+              <span aria-hidden className="absolute -right-1 -top-1 flex h-2.5 w-2.5">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-yellow-400 opacity-75" />
+                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-yellow-300" />
+              </span>
             </Link>
           </li>
         </ul>
@@ -498,17 +498,6 @@ export default function Navbar() {
                 </AnimatePresence>
               </div>
 
-              {/* Boutique — highlighted button that draws the eye */}
-              <div className="border-b border-white/5 py-3">
-                <Link
-                  href="/shop"
-                  className="flex items-center justify-center gap-2 rounded-xl bg-yellow-400 py-3 text-sm font-bold text-black shadow-[0_0_18px_rgba(250,204,21,0.35)] transition-colors hover:bg-yellow-300"
-                >
-                  <ShoppingBag size={15} />
-                  {lang === "fr" ? "Boutique" : "Shop"}
-                </Link>
-              </div>
-
               {/* Projets */}
               <Link
                 href="/projets"
@@ -537,6 +526,17 @@ export default function Navbar() {
                 {tx.contact}
               </Link>
 
+              {/* Boutique — highlighted button that draws the eye, now last */}
+              <div className="py-3">
+                <Link
+                  href="/shop"
+                  className="flex items-center justify-center gap-2 rounded-xl bg-yellow-400 py-3 text-sm font-bold text-black shadow-[0_0_18px_rgba(250,204,21,0.35)] transition-colors hover:bg-yellow-300"
+                >
+                  <ShoppingBag size={15} />
+                  {lang === "fr" ? "Boutique" : "Shop"}
+                </Link>
+              </div>
+
               {/* CTA button */}
               <div className="pt-4">
                 <Link
@@ -553,4 +553,4 @@ export default function Navbar() {
       </AnimatePresence>
     </header>
   );
-}
+}

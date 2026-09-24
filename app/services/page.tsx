@@ -55,7 +55,7 @@ const divisions = [
     accentText: "text-brand-blue-500",
     image:      "https://images.unsplash.com/photo-1556761175-4b46a572b786?w=800&h=600&fit=crop",
     imageAlt:   "Réunion de conseil stratégique à Douala",
-    description:"Depuis 2012, notre division conseil accompagne les dirigeants, entrepreneurs et PME camerounaises dans la définition de leur cap stratégique et la mise en œuvre de plans d'action concrets. Nous apportons un regard extérieur rigoureux, des méthodes éprouvées, et une connaissance fine du marché africain.",
+    description:"Depuis 2018, notre departement conseil accompagne les dirigeants, entrepreneurs et PME  dans la définition de leur cap stratégique et la mise en œuvre de plans d'action concrets. Nous apportons un regard extérieur rigoureux, des méthodes éprouvées, et une connaissance fine du marché .",
     services: [
       { icon: <TrendingUp size={17} />,  title: "Stratégie de Croissance",        desc: "Définition de votre positionnement, de vos marchés cibles et de votre plan de développement à court, moyen et long terme." },
       { icon: <FileText size={17} />,    title: "Business Plan & Études",          desc: "Rédaction de business plans, études de faisabilité et analyses de marché pour vos projets de création ou de développement." },
@@ -251,7 +251,7 @@ export default function ServicesPage() {
             <span className="text-brand-blue-500">Chaque Besoin</span>
           </h1>
           <p className="text-white/55 text-lg max-w-2xl leading-relaxed mb-10">
-            4 divisions spécialisées, une seule adresse. CM couvre l'intégralité de vos besoins en conseil, technologie, design et digital à Cameroon et dans  le monde entier.
+            CM vous accompagne sur l'ensemble de votre chaîne de valeur en conseil, technologie, design et digital.
           </p>
 
           {/* Quick jump links */}
@@ -356,7 +356,7 @@ export default function ServicesPage() {
                     <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
                   </Link>
                   <a
-                    href="https://wa.me/237694890230"
+                    href="https://wa.me/237690486009"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#1ebe59] text-white font-semibold px-6 py-3 rounded-xl text-sm transition-all duration-200"
@@ -445,7 +445,7 @@ export default function ServicesPage() {
             {/* Stats grid */}
             <div className="grid grid-cols-2 gap-5">
               {[
-                { value: "12+",  label: "Ans d'Expérience",    sub: "Depuis 2012 à Douala" },
+                { value: "12+",  label: "Ans d'Expérience",    sub: "Depuis 2018 à Douala" },
                 { value: "200+", label: "Projets Réalisés",     sub: "Clients satisfaits" },
                 { value: "4",    label: "Divisions Actives",    sub: "Services complets" },
                 { value: "98%",  label: "Taux de Satisfaction", sub: "Clients fidèles" },
@@ -493,7 +493,7 @@ export default function ServicesPage() {
               <ArrowRight size={17} className="group-hover:translate-x-1 transition-transform" />
             </Link>
             <a
-              href="https://wa.me/237694890230"
+              href="https://wa.me/237690486009"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#1ebe59] text-white font-semibold px-8 py-4 rounded-xl transition-all duration-200 hover:-translate-y-0.5"
@@ -502,7 +502,7 @@ export default function ServicesPage() {
               Discuter sur WhatsApp
             </a>
             <a
-              href="tel:+237694890230"
+              href="tel:+237690486009"
               className="inline-flex items-center gap-2 text-brand-black border border-slate-200 hover:border-brand-blue-400 hover:text-brand-blue-500 font-semibold px-8 py-4 rounded-xl text-sm transition-all duration-200"
             >
               📞 Nous Appeler Directement
@@ -513,4 +513,4 @@ export default function ServicesPage() {
 
     </>
   );
-}
+}

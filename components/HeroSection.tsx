@@ -64,20 +64,6 @@ const slides = [
     stat:     { value: "50+", label: "Apps Déployées" },
   },
   {
-    id:       "shop",
-    brand:    "CM Shop",
-    eyebrow:  "Boutique en ligne ",
-    headline: ["Des Articles", "De Qualité,", "Au Meilleur Prix."],
-    accent:   1,
-    sub:      "Ordinateurs, téléphones, accessoires et consommables —",
-    cta:      { label: "Voir la Boutique", href: "/shop" },
-    ctaAlt:   { label: "Commander WhatsApp", href: "https://wa.me/237694890230" },
-    image:    "https://images.unsplash.com/photo-1491933382434-500287f9b54b?w=1920&h=1080&fit=crop",
-    color:    "#EAB308",
-    colorName:"yellow",
-    stat:     { value: "500+", label: "Produits en Stock" },
-  },
-  {
     id:       "cloud",
     brand:    "Solutions Cloud",
     eyebrow:  "Cloud · Security · Infrastructure",
@@ -91,6 +77,22 @@ const slides = [
     colorName:"purple",
     stat:     { value: "99.9%", label: "Uptime Garanti" },
   },
+
+  {
+    id:       "shop",
+    brand:    "CM Shop",
+    eyebrow:  "Boutique en ligne ",
+    headline: ["Des Articles", "De Qualité,", "Au Meilleur Prix."],
+    accent:   1,
+    sub:      "Ordinateurs, téléphones, accessoires et consommables —",
+    cta:      { label: "Voir la Boutique", href: "/shop" },
+    ctaAlt:   { label: "Commander WhatsApp", href: "https://wa.me/237690486009" },
+    image:    "https://images.unsplash.com/photo-1491933382434-500287f9b54b?w=1920&h=1080&fit=crop",
+    color:    "#EAB308",
+    colorName:"yellow",
+    stat:     { value: "500+", label: "Produits en Stock" },
+  },
+
 ];
 
 const DURATION = 6000;
@@ -360,4 +362,4 @@ export default function HeroSection() {
       <div className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-t from-white to-transparent pointer-events-none z-10" />
     </section>
   );
-}
+}

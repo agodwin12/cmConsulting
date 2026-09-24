@@ -30,7 +30,7 @@ export interface Product {
    NUMÉRO WHATSAPP DE CM SHOP
    → Changez ce numéro pour mettre le bon numéro WhatsApp
 ───────────────────────────────────────────────────────── */
-export const SHOP_WHATSAPP = "237694890230";
+export const SHOP_WHATSAPP = "237690486009";
 
 /* ─────────────────────────────────────────────────────────
    INFORMATIONS DU SHOP
