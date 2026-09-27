@@ -110,29 +110,6 @@ const values = [
   },
 ];
 
-const teamMembers = [
-  {
-    name:  "Christian Merlin SIMALAK",
-    role:  "Business Developper / Consultant Business",
-    image: "/workers/a1.jpg",
-  },
-  {
-    name:  "Laura SEN",
-    role:  "Business Consultant / Expert en Packaging",
-    image: "/workers/a3.jpg",
-  },
-  {
-    name:  "Erick MINTAMACK",
-    role:  "Expert en Marketing & Communication",
-    image: "/workers/a2.jpg",
-  },
-  {
-    name:  "Awah Wilbroad",
-    role:  "Ingenieur Logiciel / Solution Cloud ",
-    image: "/workers/a4.jpg",
-  },
-];
-
 const milestones = [
   {
     year: "2018",
@@ -512,47 +489,6 @@ export default function AboutPage() {
                   <h4 className="font-semibold text-brand-black mb-1.5">{title}</h4>
                   <p className="text-slate-500 text-sm leading-relaxed">{desc}</p>
                 </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ══════════════════════════════════════════════════
-          7. ÉQUIPE — 2-col mobile, 4-col desktop
-      ══════════════════════════════════════════════════ */}
-      <section className="bg-gradient-to-b from-slate-50 to-blue-50/20 py-20 lg:py-28">
-        <div className="w-full px-6 lg:px-16 xl:px-24">
-          <div className="text-center mb-14">
-            <div className="flex items-center justify-center gap-3 mb-4">
-              <span className="h-px w-10 bg-brand-blue-500" />
-              <span className="text-brand-blue-500 text-xs font-semibold uppercase tracking-widest">
-                Les Personnes Derrière CM
-              </span>
-              <span className="h-px w-10 bg-brand-blue-500" />
-            </div>
-            <h2 className="font-display text-4xl lg:text-5xl font-bold text-brand-black mb-4">
-              Notre Équipe de Direction
-            </h2>
-            <p className="text-slate-500 max-w-lg mx-auto text-sm leading-relaxed">
-              Des professionnels passionnés et expérimentés, engagés à faire de votre projet un succès.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
-            {teamMembers.map(({ name, role, image }) => (
-              <div key={name} className="group text-center">
-                <div className="relative w-full aspect-square rounded-2xl overflow-hidden shadow-card mb-4 border border-slate-100 group-hover:border-brand-blue-300 group-hover:shadow-card-lg transition-all duration-300">
-                  <Image
-                    src={image}
-                    alt={name}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-brand-blue-500/0 group-hover:bg-brand-blue-500/10 transition-all duration-300" />
-                </div>
-                <h4 className="font-display font-bold text-brand-black text-sm sm:text-base leading-tight">{name}</h4>
-                <p className="text-slate-400 text-xs mt-1 leading-snug">{role}</p>
               </div>
             ))}
           </div>
