@@ -9,11 +9,8 @@ import {
   BarChart2,
   Wrench,
   Palette,
-  Code2,
   ShoppingBag,
-  Cloud,
   CheckCircle2,
-  TrendingUp,
   Users,
   Award,
   Star,
@@ -24,6 +21,18 @@ import {
   MessageCircle,
 } from "lucide-react";
 import LogoSlider from "@/components/LogoSlider";
+import {
+  ListenDiagnoseArt,
+  TailoredStrategyArt,
+  ExecutionDeliveryArt,
+  GrowthArt,
+  ConsultingArt,
+  ITMaintenanceArt,
+  VisualDesignArt,
+  SoftwareDevArt,
+  OnlineShopArt,
+  CloudSolutionsArt,
+} from "@/components/icons/service-illustrations";
 
 /* ─────────────────────────────────────────────────────────
    ANIMATION HELPERS
@@ -59,7 +68,8 @@ const slides = [
     sub:      "",
     cta:      { label: "Démarrer un Projet", href: "/contact" },
     ctaAlt:   { label: "Nos Services",       href: "/services#conseil" },
-    image:    "/hero/conseil-strategie.jpg",
+    /* Black businessman, seated at office desk, confident, generous headroom */
+    image:    "https://images.unsplash.com/photo-1604783125462-37d81c7385e6?w=1920&h=1080&fit=crop",
     stat:     { value: "200+", label: "Projets Réalisés" },
   },
   {
@@ -123,7 +133,8 @@ const slides = [
     sub:      "",
     cta:      { label: "Audit Gratuit", href: "/contact" },
     ctaAlt:   { label: "En Savoir Plus", href: "/services#cloud" },
-    image:    "/hero/solutions-cloud.jpg",
+    /* Black businesswoman, modern office, plants + wall screen, generous headroom */
+    image:    "https://images.unsplash.com/photo-1653669486397-b802144ae64a?w=1920&h=1080&fit=crop",
     stat:     { value: "99.9%", label: "Uptime Garanti" },
   },
 ];
@@ -135,54 +146,42 @@ const DURATION = 6000;
 ───────────────────────────────────────────────────────── */
 const services = [
   {
-    icon:        <BarChart2 size={26} />,
-    iconColor:   "text-brand-blue-400",
-    hoverBg:     "group-hover:bg-brand-blue-500",
+    icon:        <ConsultingArt className="w-16 h-16" />,
     title:       "Conseil & Stratégie",
     titleEn:     "Consulting & Strategy",
     description: "Accompagnement stratégique, développement commercial, gestion d'entreprise et planification pour propulser votre croissance.",
     href:        "/services#conseil",
   },
   {
-    icon:        <Wrench size={26} />,
-    iconColor:   "text-brand-blue-400",
-    hoverBg:     "group-hover:bg-brand-blue-500",
+    icon:        <ITMaintenanceArt className="w-16 h-16" />,
     title:       "maintainance informatique & reseaux",
     titleEn:     "IT & Tech Support",
     description: "Maintaince des system informatique, administration reseaux, création de parcs informatique.",
     href:        "/services#depannage",
   },
   {
-    icon:        <Palette size={26} />,
-    iconColor:   "text-brand-blue-400",
-    hoverBg:     "group-hover:bg-brand-blue-500",
+    icon:        <VisualDesignArt className="w-16 h-16" />,
     title:       "Communication Visuelle",
     titleEn:     "Graphic Design",
     description: "Conception et réalisation des supports de communication et gadgets publicitaire.",
     href:        "/services#graphique",
   },
   {
-    icon:        <Code2 size={26} />,
-    iconColor:   "text-brand-blue-400",
-    hoverBg:     "group-hover:bg-brand-blue-500",
+    icon:        <SoftwareDevArt className="w-16 h-16" />,
     title:       "Développement Logiciel",
     titleEn:     "Software Development",
     description: "Création de sites web professionnels, applications mobiles Android & iOS, et logiciels sur mesure pour votre business.",
     href:        "/services#dev",
   },
   {
-    icon:        <ShoppingBag size={26} />,
-    iconColor:   "text-brand-blue-400",
-    hoverBg:     "group-hover:bg-brand-blue-500",
+    icon:        <OnlineShopArt className="w-16 h-16" />,
     title:       "Boutique en ligne",
     titleEn:     "CM Shop",
     description: "Boutique spécialisée en matériel électronique.",
     href:        "/shop",
   },
   {
-    icon:        <Cloud size={26} />,
-    iconColor:   "text-brand-blue-400",
-    hoverBg:     "group-hover:bg-brand-blue-500",
+    icon:        <CloudSolutionsArt className="w-16 h-16" />,
     title:       "Solutions Cloud",
     titleEn:     "Cloud Solutions",
     description: "Hébergement web, migration cloud, sauvegarde de données et cybersécurité pour protéger votre entreprise.",
@@ -677,7 +676,7 @@ export default function HomePage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {services.map(({ icon, iconColor, hoverBg, title, titleEn, description, href }, i) => (
+            {services.map(({ icon, title, titleEn, description, href }, i) => (
               <motion.div
                 key={title}
                 {...fadeUp(i * 0.08)}
@@ -688,8 +687,7 @@ export default function HomePage() {
 
                 <div className="relative z-10">
                   <div className="flex items-start justify-between mb-6">
-                    {/* Icon — bg goes brand blue on hover */}
-                    <div className={`w-14 h-14 rounded-xl bg-brand-black flex items-center justify-center ${iconColor} ${hoverBg} transition-all duration-300`}>
+                    <div className="group-hover:scale-105 transition-transform duration-300">
                       {icon}
                     </div>
                     <span className="font-display text-5xl font-bold text-slate-100 group-hover:text-white/8 transition-colors duration-300 leading-none">
@@ -879,18 +877,21 @@ export default function HomePage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { step: "01", title: "Écoute & Diagnostic",   desc: "Nous prenons le temps de comprendre votre activité, vos défis et vos objectifs avant de proposer quoi que ce soit." },
-              { step: "02", title: "Stratégie Sur Mesure",  desc: "Nous concevons un plan d'action adapté à votre réalité, avec des étapes claires et des résultats mesurables." },
-              { step: "03", title: "Exécution & Livraison", desc: "Notre équipe travaille à vos côtés pour mettre en œuvre la stratégie avec rigueur et dans les délais convenus." },
-              { step: "04", title: "Suivi & Croissance",    desc: "Nous mesurons les résultats, ajustons si nécessaire et assurons un accompagnement après livraison." },
-            ].map(({ step, title, desc }, i) => (
+              { step: "01", icon: <ListenDiagnoseArt className="w-16 h-16" />,   title: "Écoute & Diagnostic",   desc: "Nous prenons le temps de comprendre votre activité, vos défis et vos objectifs avant de proposer quoi que ce soit." },
+              { step: "02", icon: <TailoredStrategyArt className="w-16 h-16" />, title: "Stratégie Sur Mesure",  desc: "Nous concevons un plan d'action adapté à votre réalité, avec des étapes claires et des résultats mesurables." },
+              { step: "03", icon: <ExecutionDeliveryArt className="w-16 h-16" />, title: "Exécution & Livraison", desc: "Notre équipe travaille à vos côtés pour mettre en œuvre la stratégie avec rigueur et dans les délais convenus." },
+              { step: "04", icon: <GrowthArt className="w-16 h-16" />,           title: "Suivi & Croissance",    desc: "Nous mesurons les résultats, ajustons si nécessaire et assurons un accompagnement après livraison." },
+            ].map(({ step, icon, title, desc }, i) => (
               <motion.div key={step} {...fadeUp(i * 0.1)} className="relative group">
                 {i < 3 && (
                   <div className="hidden lg:block absolute top-8 left-full w-full h-px bg-gradient-to-r from-brand-blue-500/30 to-transparent z-0" />
                 )}
                 <div className="relative z-10 bg-gradient-to-b from-slate-50 to-white border border-slate-100 rounded-2xl p-8 hover:border-brand-blue-300 hover:shadow-card transition-all duration-300 h-full">
-                  <div className="w-14 h-14 rounded-xl bg-brand-black group-hover:bg-brand-blue-500 flex items-center justify-center mb-6 transition-colors duration-300">
-                    <span className="font-display text-lg font-bold text-brand-blue-400 group-hover:text-white transition-colors duration-300">
+                  <div className="flex items-start justify-between mb-6">
+                    <div className="group-hover:scale-105 transition-transform duration-300">
+                      {icon}
+                    </div>
+                    <span className="font-display text-4xl font-bold text-slate-100 group-hover:text-brand-blue-100 transition-colors duration-300 leading-none">
                       {step}
                     </span>
                   </div>
