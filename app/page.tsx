@@ -68,8 +68,8 @@ const slides = [
     sub:      "",
     cta:      { label: "Démarrer un Projet", href: "/contact" },
     ctaAlt:   { label: "Nos Services",       href: "/services#conseil" },
-    /* Black businessman, seated at office desk, confident, generous headroom */
-    image:    "https://images.unsplash.com/photo-1604783125462-37d81c7385e6?w=1920&h=1080&fit=crop",
+    /* Black businessman celebrating success in a modern glass office, growth energy */
+    image:    "https://images.unsplash.com/photo-1758519290801-c07424a5142a?w=1920&h=1080&fit=crop",
     stat:     { value: "200+", label: "Projets Réalisés" },
   },
   {
