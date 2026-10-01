@@ -68,8 +68,8 @@ const slides = [
     sub:      "",
     cta:      { label: "Démarrer un Projet", href: "/contact" },
     ctaAlt:   { label: "Nos Services",       href: "/services#conseil" },
-    /* Black businessman celebrating success in a modern glass office, growth energy */
-    image:    "https://images.unsplash.com/photo-1758519290801-c07424a5142a?w=1920&h=1080&fit=crop",
+    /* CM consultant presenting growth/funding strategy to a client */
+    image:    "/hero/conseil-presentation.jpg",
     stat:     { value: "200+", label: "Projets Réalisés" },
   },
   {
@@ -133,8 +133,8 @@ const slides = [
     sub:      "",
     cta:      { label: "Audit Gratuit", href: "/contact" },
     ctaAlt:   { label: "En Savoir Plus", href: "/services#cloud" },
-    /* Black businesswoman, modern office, plants + wall screen, generous headroom */
-    image:    "https://images.unsplash.com/photo-1653669486397-b802144ae64a?w=1920&h=1080&fit=crop",
+    /* Data center server racks, blue LED lighting */
+    image:    "/hero/solutions-cloud-v2.jpg",
     stat:     { value: "99.9%", label: "Uptime Garanti" },
   },
 ];
